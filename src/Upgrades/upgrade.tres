@@ -1,0 +1,6 @@
+[gd_resource type="Resource" format=3 uid="uid://f062c7k5lawu"]
+
+[ext_resource type="Script" uid="uid://c23jgumoawuxg" path="res://src/Upgrades/upgrade.gd" id="1_htmb0"]
+
+[resource]
+script = ExtResource("1_htmb0")
