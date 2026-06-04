@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://cb0nk5oaciaxf"]
+
+[ext_resource type="Texture2D" uid="uid://c5dxit7unymia" path="res://Images/space_bun_icon.png" id="1_r5jfm"]
+[ext_resource type="Script" uid="uid://c23jgumoawuxg" path="res://src/Upgrades/upgrade.gd" id="1_u0wli"]
+
+[resource]
+script = ExtResource("1_u0wli")
+icon = ExtResource("1_r5jfm")
+name = "Space Buns"
+description = "Adorable buns to help you farm."
+max_level = 4
+upgrade_cost = 10
+base_value = 0
+metadata/_custom_type_script = "uid://c23jgumoawuxg"

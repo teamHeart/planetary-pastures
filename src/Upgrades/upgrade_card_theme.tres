@@ -1,0 +1,39 @@
+[gd_resource type="Theme" format=3 uid="uid://cxdv60ujrjlw1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6545i"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jr6tv"]
+bg_color = Color(0.6, 0.6, 0.6, 0.2509804)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71t7l"]
+bg_color = Color(2.887845e-06, 0.6592735, 0.84858584, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+MarginContainer/constants/margin_bottom = 20
+MarginContainer/constants/margin_left = 20
+MarginContainer/constants/margin_right = 20
+MarginContainer/constants/margin_top = 20
+Panel/styles/panel = SubResource("StyleBoxFlat_6545i")
+ProgressBar/font_sizes/font_size = 16
+ProgressBar/styles/background = SubResource("StyleBoxFlat_jr6tv")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_71t7l")

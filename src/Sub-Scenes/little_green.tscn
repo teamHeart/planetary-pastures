@@ -1,3 +1,31 @@
 [gd_scene format=3 uid="uid://05e2x1147qcd"]
 
-[node name="LittleGreen" type="Node2D" unique_id=1147409924]
+[ext_resource type="Texture2D" uid="uid://tepdgsjaxoy2" path="res://icon.svg" id="1_40gtr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2d8a4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_40gtr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_40gtr"]
+radius = 16.03122
+
+[node name="Node2D" type="CharacterBody2D" unique_id=1476048170]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=633297189]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_2d8a4")
+
+[node name="SearchCollider" type="Area2D" parent="." unique_id=1809244157]
+
+[node name="SCol" type="CollisionShape2D" parent="SearchCollider" unique_id=1739770908]
+shape = SubResource("CircleShape2D_40gtr")
+
+[node name="GCol" type="CollisionShape2D" parent="." unique_id=1997459256]
+shape = SubResource("CircleShape2D_40gtr")

@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://dt5hcftiegp2x"]
+
+[ext_resource type="Script" uid="uid://dgkcm50no1lih" path="res://src/Sub-Scenes/gargen_plot.gd" id="1_0ahue"]
+[ext_resource type="Texture2D" uid="uid://buntmo1doo8m5" path="res://Images/Planetary_pastures_plant_ideas_004.png" id="1_k2li2"]
+[ext_resource type="Texture2D" uid="uid://b4yg53bg6wgr1" path="res://Images/lump.png" id="3_aiu54"]
+
+[sub_resource type="Curve" id="Curve_aiu54"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), -21.943846, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_e7m1a"]
+offsets = PackedFloat32Array(0, 0.36875, 0.6875, 1)
+colors = PackedColorArray(0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0)
+
+[sub_resource type="Animation" id="Animation_aiu54"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.045378562]
+}
+
+[sub_resource type="Animation" id="Animation_e7m1a"]
+resource_name = "Sway"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1.5, 0.75, 1.5, 0.75),
+"update": 0,
+"values": [0.0, 0.06544985, 0.1308997, 0.06954046]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gb0aw"]
+_data = {
+&"RESET": SubResource("Animation_aiu54"),
+&"Sway": SubResource("Animation_e7m1a")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aiu54"]
+size = Vector2(32, 32)
+
+[node name="GardenPlot" type="Node2D" unique_id=178514170]
+script = ExtResource("1_0ahue")
+plot_id = 1
+plant_type = 1
+
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=177395670]
+emitting = false
+local_coords = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 24.6
+initial_velocity_max = 24.6
+damping_min = 22.27
+damping_max = 22.27
+scale_amount_curve = SubResource("Curve_aiu54")
+color_ramp = SubResource("Gradient_e7m1a")
+
+[node name="Flower" type="Sprite2D" parent="." unique_id=1128716378]
+texture_filter = 1
+position = Vector2(0, 16)
+scale = Vector2(1e-05, 1e-05)
+skew = -0.045378562
+texture = ExtResource("1_k2li2")
+offset = Vector2(0, -16)
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Flower" unique_id=1870841718]
+libraries/ = SubResource("AnimationLibrary_gb0aw")
+
+[node name="Lump" type="Sprite2D" parent="." unique_id=1610442462]
+texture_filter = 1
+position = Vector2(0, 16)
+texture = ExtResource("3_aiu54")
+offset = Vector2(0, -16)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1004444310]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=848423006]
+shape = SubResource("RectangleShape2D_aiu54")

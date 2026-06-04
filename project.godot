@@ -14,6 +14,23 @@ config/name="Planetary Pastures"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DevkitMessenger="*uid://cr5t358qfaup"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/size/resizable=false
+window/size/borderless=true
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/steam_devkit_notifier/plugin.cfg")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
