@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dt5hcftiegp2x"]
 
-[ext_resource type="Script" uid="uid://dgkcm50no1lih" path="res://src/Sub-Scenes/gargen_plot.gd" id="1_0ahue"]
 [ext_resource type="Texture2D" uid="uid://buntmo1doo8m5" path="res://Images/Planetary_pastures_plant_ideas_004.png" id="1_k2li2"]
+[ext_resource type="Script" uid="uid://bfxxaads1m627" path="res://src/Sub-Scenes/Garden Plot/gargen_plot.gd" id="1_p1jro"]
 [ext_resource type="Texture2D" uid="uid://b4yg53bg6wgr1" path="res://Images/lump.png" id="3_aiu54"]
 
 [sub_resource type="Curve" id="Curve_aiu54"]
@@ -54,7 +54,7 @@ _data = {
 size = Vector2(32, 32)
 
 [node name="GardenPlot" type="Node2D" unique_id=178514170]
-script = ExtResource("1_0ahue")
+script = ExtResource("1_p1jro")
 plot_id = 1
 plant_type = 1
 
@@ -93,3 +93,4 @@ offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=848423006]
 shape = SubResource("RectangleShape2D_aiu54")
+debug_color = Color(0, 0.6, 0.69803923, 0.1254902)
