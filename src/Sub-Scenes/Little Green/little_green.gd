@@ -1,6 +1,16 @@
 class_name LittleGreen
 extends CharacterBody2D
 
+var target_position: Vector2 = Vector2.ZERO
+var current_plot_id: int = -1
+
+## Elements in plants_holding Queue are dictionaries with the following structure:[br]
+## {
+##    [i][b]"plant_type"[/b][/i]: [code]PlantType[/code],
+##    [i][b]"count"[/b][/i]: [code]int[/code]
+## }
+var plants_holding: Queue = Queue.new()
+
 @onready var plant_queue: Queue = Queue.new()
 @onready var harvest_queue: Queue = Queue.new()
 @onready var state_machine: StateMachine = StateMachine.new()
@@ -16,29 +26,52 @@ func _ready() -> void:
 	# Set up states
 
 	var idle_state: StateMachine.State = StateMachine.State.new()
+	var traveling_state: StateMachine.State = StateMachine.State.new()
+	var planting_state: StateMachine.State = StateMachine.State.new()
+	var harvesting_state: StateMachine.State = StateMachine.State.new()
+	var unloading_state: StateMachine.State = StateMachine.State.new()
+
+
+	# Idle State
 	idle_state.set_enter(func() -> void: pass)
-	idle_state.set_process(func(_delta: float) -> void: pass)
+	idle_state.set_process(func(_delta: float) -> void:
+		if num_plants_holding() >= Parameters.get_little_green_carry_capacity():
+			state_machine.change_state(unloading_state)
+		elif not harvest_queue.is_empty():
+			state_machine.change_state(harvesting_state)
+		elif not plant_queue.is_empty():
+			state_machine.change_state(planting_state)
+		else:
+			# Idle behavior (i.e., do nothing or play idle animation)
+			pass
+	)
 	idle_state.set_exit(func() -> void: pass)
 
-	var traveling_state: StateMachine.State = StateMachine.State.new()
+
+	# Traveling State
 	traveling_state.set_enter(func() -> void: pass)
 	traveling_state.set_process(func(_delta: float) -> void: pass)
 	traveling_state.set_exit(func() -> void: pass)
 
-	var planting_state: StateMachine.State = StateMachine.State.new()
+
+	# Planting State
 	planting_state.set_enter(func() -> void: pass)
 	planting_state.set_process(func(_delta: float) -> void: pass)
 	planting_state.set_exit(func() -> void: pass)
 
-	var harvesting_state: StateMachine.State = StateMachine.State.new()
+
+	# Harvesting State
 	harvesting_state.set_enter(func() -> void: pass)
 	harvesting_state.set_process(func(_delta: float) -> void: pass)
 	harvesting_state.set_exit(func() -> void: pass)
 
-	var unloading_state: StateMachine.State = StateMachine.State.new()
+
+	# Unloading State
 	unloading_state.set_enter(func() -> void: pass)
 	unloading_state.set_process(func(_delta: float) -> void: pass)
 	unloading_state.set_exit(func() -> void: pass)
+
+	state_machine.change_state(idle_state)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -49,3 +82,10 @@ func _on_plant_grown(plot_id: int) -> void:
 
 func _on_plant_harvested(plot_id: int) -> void:
 	plant_queue.push(plot_id)
+
+func num_plants_holding() -> int:
+	var count: int = 0
+	var temp_queue : Array = plants_holding.peek_all()
+	for i in range(temp_queue.size()):
+		count += temp_queue[i]["count"]
+	return count
