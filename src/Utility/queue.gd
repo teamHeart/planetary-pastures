@@ -20,6 +20,9 @@ func peek()->Variant:
         return _items[0]
     return null
 
+func peek_all()->Array:
+    return _items.duplicate()
+
 func push(item):
     _items.append(item)
 
