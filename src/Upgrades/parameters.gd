@@ -1,3 +1,4 @@
+class_name Parameters
 extends Object
 
 ## Little Green related parameters
