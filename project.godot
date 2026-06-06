@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 DevkitMessenger="*uid://cr5t358qfaup"
+Parameters="*uid://dyurh7sxgp6y8"
 
 [display]
 

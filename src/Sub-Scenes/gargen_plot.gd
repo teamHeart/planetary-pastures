@@ -109,3 +109,5 @@ func _on_input_event(_viewport, event, _shape_idx) -> void:
 		elif plant_type == PlantType.NONE:
 			var rand: int = (randi() % 3) + 1  # Randomly select a plant type (excluding NONE)
 			plant(PlantType.values()[rand])
+
+
