@@ -11,25 +11,39 @@ config_version=5
 [application]
 
 config/name="Planetary Pastures"
+run/main_scene="uid://ciyjck8omac7h"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 DevkitMessenger="*uid://cr5t358qfaup"
+SignalLens="*uid://85rkx60vm7a7"
 
 [display]
 
-window/size/viewport_width=960
-window/size/viewport_height=540
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+mouse_cursor/custom_image="uid://d13ff7fio0odg"
+
+[editor]
+
+movie_writer/movie_file="/home/prncssclr/Documents/Planetary-Pastures/planetary-pastures/VideoCaps/rec.mp4.avi"
+movie_writer/fps=30
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/steam_devkit_notifier/plugin.cfg")
+enabled=PackedStringArray("res://addons/signal_lens/plugin.cfg", "res://addons/steam_devkit_notifier/plugin.cfg")
+
+[global_group]
+
+GardenPlots=""
+LittleGreen=""
 
 [physics]
 

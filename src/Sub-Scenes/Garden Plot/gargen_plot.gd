@@ -17,9 +17,12 @@ static var plant_dict: Dictionary = {
 	{"tex_offset": Vector2(2, 0), "growth_time": 8.0, "gestation_time": 4.0, "yield": 3}
 }
 
-@export var plot_id: int
-@export var plant_type: PlantType = PlantType.NONE
-@export_range(0.0, 1.0, 0.01) var growth_percent: float = 0.0
+static var plot_counter: int = 0
+
+var plant_type: PlantType = PlantType.NONE
+var growth_percent: float = 0.0
+
+var plot_id: int = 0
 
 var _growth_time: float = 0.0
 var _is_grown: bool = false
@@ -31,8 +34,25 @@ var _is_grown: bool = false
 @onready var area_2d: Area2D = $Area2D
 
 
+func _enter_tree() -> void:
+	# Ensure the plot_id is unique and correctly assigned
+	if plot_id == 0:
+		plot_id = plot_counter
+		plot_counter += 1
+		print("Assigned Plot ID: ", plot_id)
+	name = "Plot_" + str(plot_id)
+	add_to_group("GardenPlots", true)
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_tree().get_first_node_in_group("LittleGreen").call_deferred(
+		"connect", "planted_on_plot", Callable(self, "_on_planted_on_plot")
+	)
+	get_tree().get_first_node_in_group("LittleGreen").call_deferred(
+		"connect", "harvested_from_plot", Callable(self, "_on_harvested_from_plot")
+	)
+
 	plant(PlantType.NONE)  # Initialize the plot with no plant
 	# Set the initial scale of the sprites
 	lump_sprite.scale = Vector2(1.0, 1.0)
@@ -72,10 +92,20 @@ func _process(delta: float) -> void:
 				growth_percent = 1.0
 				lump_sprite.scale = Vector2(0.0, 0.0)
 				flower_sprite.scale = Vector2(1.0, 1.0)
-				emit_signal("plant_grown", plot_id)
+				plant_grown.emit(plot_id)
 				_is_grown = true
 				anim_player.play("Sway")
 				particle_emitter.emitting = true
+
+
+func _get_details() -> Dictionary:
+	return {
+		"location": global_position,
+		"plant_type": plant_type,
+		"yield": plant_dict[plant_type].get("yield", 0),
+		"plant_time": plant_dict[plant_type].get("growth_time", 0.0),
+		"harvest_time": plant_dict[plant_type].get("gestation_time", 0.0)
+	}
 
 
 func plant(_plant_type: PlantType) -> void:
@@ -94,7 +124,7 @@ func harvest() -> int:
 		return 0
 	var produced: int = plant_dict[plant_type]["yield"]
 	plant(PlantType.NONE)
-	emit_signal("plant_harvested", produced)
+	plant_harvested.emit(plot_id)
 	return produced
 
 
@@ -111,3 +141,12 @@ func _on_input_event(_viewport, event, _shape_idx) -> void:
 			plant(PlantType.values()[rand])
 
 
+func _on_planted_on_plot(_plot_id: int) -> void:
+	# This function can be used to trigger any additional effects when a plant is planted on the plot
+	pass
+
+
+func _on_harvested_from_plot(_plot_id: int) -> void:
+	# This function can be used to trigger any additional
+	# effects when a plant is harvested from the plot
+	harvest()

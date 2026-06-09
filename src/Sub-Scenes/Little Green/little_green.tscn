@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://05e2x1147qcd"]
 
 [ext_resource type="Texture2D" uid="uid://tepdgsjaxoy2" path="res://icon.svg" id="1_40gtr"]
+[ext_resource type="Script" uid="uid://bipqk1qsfmk8m" path="res://src/Sub-Scenes/Little Green/little_green.gd" id="1_t803k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2d8a4"]
 animations = [{
@@ -17,6 +18,7 @@ animations = [{
 radius = 16.03122
 
 [node name="Node2D" type="CharacterBody2D" unique_id=1476048170]
+script = ExtResource("1_t803k")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=633297189]
 scale = Vector2(0.25, 0.25)
