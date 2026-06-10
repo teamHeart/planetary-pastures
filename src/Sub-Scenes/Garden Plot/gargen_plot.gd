@@ -1,53 +1,18 @@
 class_name GardenPlot
 extends Node2D
 
+@warning_ignore_start("unused_signal")
 signal plant_grown(plot_id: int)
 signal plant_harvested(produced: int)
 
-enum PlantType { NONE, CARROT, TOMATO, LETTUCE }
-
-static var plant_dict: Dictionary = {
-	PlantType.NONE:
-	{  # A very large number to prevent growth
-		"tex_offset": Vector2(2, 1),
-		"growth_time": 0.0,
-		"gestation_time": 0b1 << 30,
-		"yield": 0,
-		"harvest_time": 2.0
-	},
-	PlantType.CARROT:
-	{
-		"tex_offset": Vector2(0, 0),
-		"growth_time": 10.0,
-		"gestation_time": 5.0,
-		"yield": 1,
-		"harvest_time": 2.0
-	},
-	PlantType.TOMATO:
-	{
-		"tex_offset": Vector2(1, 0),
-		"growth_time": 12.0,
-		"gestation_time": 6.0,
-		"yield": 2,
-		"harvest_time": 2.0
-	},
-	PlantType.LETTUCE:
-	{
-		"tex_offset": Vector2(2, 0),
-		"growth_time": 8.0,
-		"gestation_time": 4.0,
-		"yield": 3,
-		"harvest_time": 2.0
-	}
-}
 
 static var plot_counter: int = 0
 
-var plant_type: PlantType = PlantType.NONE
 var growth_percent: float = 0.0
 
 var plot_id: int = 0
 
+@warning_ignore_start("unused_private_class_variable")
 var _growth_time: float = 0.0
 var _is_grown: bool = false
 
@@ -84,7 +49,7 @@ func _ready() -> void:
 		"connect", "harvested_from_plot", Callable(self, "_on_harvested_from_plot")
 	)
 
-	plant(PlantType.NONE)  # Initialize the plot with no plant
+	plant(PlantDetails.PlantType.NONE)  # Initialize the plot with no plant
 	# Set the initial scale of the sprites
 	lump_sprite.scale = Vector2(1.0, 1.0)
 	flower_sprite.scale = Vector2(0.0, 0.0)
@@ -98,71 +63,20 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if plant_type == PlantType.NONE:
-		return
-	_growth_time += delta
-	match _growth_time:
-		# Gestation phase
-		_ when _growth_time < plant_dict[plant_type]["gestation_time"]:
-			pass
-
-		# Growth phase
-		_ when (
-			_growth_time
-			< plant_dict[plant_type]["growth_time"] + plant_dict[plant_type]["gestation_time"]
-		):
-			var growing_time: float = _growth_time - plant_dict[plant_type]["gestation_time"]
-			growth_percent = growing_time / plant_dict[plant_type]["growth_time"]
-			lump_sprite.scale = Vector2(1.0, 1.0) * (1.0 - growth_percent)
-			flower_sprite.scale = Vector2(1.0, 1.0) * growth_percent
-
-		# Harvest phase
-		_:
-			if not _is_grown:
-				growth_percent = 1.0
-				lump_sprite.scale = Vector2(0.0, 0.0)
-				flower_sprite.scale = Vector2(1.0, 1.0)
-				plant_grown.emit(plot_id)
-				_is_grown = true
-				anim_player.play("Sway")
-				particle_emitter.emitting = true
+func _process(_delta: float) -> void:
+	pass
 
 
 func _get_details() -> Dictionary:
-	print_rich(
-		"Getting details for [color=green]" + name + "[/color]"
-	)
-	var ret = {
-		"plot_id": plot_id,
-		"location": global_position,
-		"plant_type": plant_dict[plant_type].get("plant_type", PlantType.NONE),
-		"yield": plant_dict[plant_type].get("yield", 0),
-		"plant_time": plant_dict[plant_type].get("growth_time", 0.0),
-		"harvest_time": plant_dict[plant_type].get("gestation_time", 0.0)
-	}
-	print_rich("plot location: [color=green]" + str(ret) + "[/color]")
-	return ret
+	return {}
 
 
-func plant(_plant_type: PlantType) -> void:
-	flower_sprite.scale = Vector2(0.0, 0.0)
-	lump_sprite.scale = Vector2(1.0, 1.0)
-	self.plant_type = _plant_type
-	lump_sprite.visible = true if _plant_type != PlantType.NONE else false
-	flower_sprite.region_rect.position = plant_dict[_plant_type]["tex_offset"] * 32.0
-	_growth_time = 0.0
-	_is_grown = false
-	particle_emitter.emitting = false
+func plant(_plant_type: PlantDetails.PlantType) -> void:
+	pass
 
 
 func harvest() -> int:
-	if not _is_grown:
-		return 0
-	var produced: int = plant_dict[plant_type]["yield"]
-	plant(PlantType.NONE)
-	plant_harvested.emit(plot_id)
-	return produced
+	return 0
 
 
 func _on_input_event(_viewport, event, _shape_idx) -> void:
@@ -171,12 +85,7 @@ func _on_input_event(_viewport, event, _shape_idx) -> void:
 		and event.pressed
 		and event.button_index == MouseButton.MOUSE_BUTTON_LEFT
 	):
-		if _is_grown:
-			harvest()
-		elif plant_type == PlantType.NONE:
-			var rand: int = (randi() % 3) + 1  # Randomly select a plant type (excluding NONE)
-			plant(PlantType.values()[rand])
-
+		pass
 
 func _on_planted_on_plot(_plot_id: int) -> void:
 	# This function can be used to trigger any additional effects when a plant is planted on the plot

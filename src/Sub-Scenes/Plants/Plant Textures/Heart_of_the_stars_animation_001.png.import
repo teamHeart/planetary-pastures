@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctccxoriatr4q"
-path="res://.godot/imported/Heart_of_the_Stars_growth_stages_001.png-ae8e4c88e1e6ce8428e61eca7e997ae6.ctex"
+uid="uid://bqp5i5isxf5uo"
+path="res://.godot/imported/Heart_of_the_stars_animation_001.png-e9673818bc6d6678f177e40078aaac32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Heart_of_the_Stars_growth_stages_001.png"
-dest_files=["res://.godot/imported/Heart_of_the_Stars_growth_stages_001.png-ae8e4c88e1e6ce8428e61eca7e997ae6.ctex"]
+source_file="res://src/Sub-Scenes/Plants/Plant Textures/Heart_of_the_stars_animation_001.png"
+dest_files=["res://.godot/imported/Heart_of_the_stars_animation_001.png-e9673818bc6d6678f177e40078aaac32.ctex"]
 
 [params]
 

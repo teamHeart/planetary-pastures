@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coa5vxbo3m58t"
-path="res://.godot/imported/Moonberry_bush_growth_stages_001.png-e368cb510846c3ae8602843110924bc0.ctex"
+uid="uid://cgkjvsw2f8tsg"
+path="res://.godot/imported/Basket_Stinkhorn_growth_stages_001.png-7e3b8d6b614e73ed9f863273a39baaa4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Moonberry_bush_growth_stages_001.png"
-dest_files=["res://.godot/imported/Moonberry_bush_growth_stages_001.png-e368cb510846c3ae8602843110924bc0.ctex"]
+source_file="res://src/Sub-Scenes/Plants/Plant Textures/Basket_Stinkhorn_growth_stages_001.png"
+dest_files=["res://.godot/imported/Basket_Stinkhorn_growth_stages_001.png-7e3b8d6b614e73ed9f863273a39baaa4.ctex"]
 
 [params]
 

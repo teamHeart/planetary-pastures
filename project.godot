@@ -39,6 +39,15 @@ movie_writer/fps=30
 
 enabled=PackedStringArray("res://addons/signal_lens/plugin.cfg", "res://addons/steam_devkit_notifier/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://src/Scenes/": "red",
+"res://src/Sub-Scenes/": "orange",
+"res://src/Sub-Scenes/Little Green/": "pink",
+"res://src/Sub-Scenes/Plants/": "green"
+}
+
 [global_group]
 
 GardenPlots=""

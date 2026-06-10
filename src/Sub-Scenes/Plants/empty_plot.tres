@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlantDetails" format=3 uid="uid://80xiobujoo3g"]
+
+[ext_resource type="Script" uid="uid://djg4rq2khjpyt" path="res://src/Sub-Scenes/Plants/util/plant_details.gd" id="1_tpioy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h6koh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a0s8i"]
+
+[resource]
+script = ExtResource("1_tpioy")
+plant_name = "Empty Plot"
+description = "Ain't nuthin here yet."
+gestation_time = 1073741800.0
+growth_texture = SubResource("CompressedTexture2D_a0s8i")
+grown_animation = SubResource("SpriteFrames_h6koh")
+metadata/_custom_type_script = "uid://djg4rq2khjpyt"

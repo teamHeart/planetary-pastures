@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgkjvsw2f8tsg"
-path="res://.godot/imported/Basket_Stinkhorn_growth_stages_001.png-7b9bd1c31a1ed231375b24a80dbbcf87.ctex"
+uid="uid://ctccxoriatr4q"
+path="res://.godot/imported/Heart_of_the_Stars_growth_stages_001.png-8cbcf0cd4afd90bcf64f6683c214ddba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Basket_Stinkhorn_growth_stages_001.png"
-dest_files=["res://.godot/imported/Basket_Stinkhorn_growth_stages_001.png-7b9bd1c31a1ed231375b24a80dbbcf87.ctex"]
+source_file="res://src/Sub-Scenes/Plants/Plant Textures/Heart_of_the_Stars_growth_stages_001.png"
+dest_files=["res://.godot/imported/Heart_of_the_Stars_growth_stages_001.png-8cbcf0cd4afd90bcf64f6683c214ddba.ctex"]
 
 [params]
 

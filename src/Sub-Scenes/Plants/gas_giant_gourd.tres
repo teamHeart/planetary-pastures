@@ -1,0 +1,85 @@
+[gd_resource type="Resource" script_class="PlantDetails" format=3 uid="uid://dmxqmgm0688e1"]
+
+[ext_resource type="Script" uid="uid://djg4rq2khjpyt" path="res://src/Sub-Scenes/Plants/util/plant_details.gd" id="1_lsqye"]
+[ext_resource type="Texture2D" uid="uid://cs40fpk1ad7bx" path="res://src/Sub-Scenes/Plants/Plant Textures/Gas_Giant_gourd_bounce_002.png" id="1_n30q5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l81n5"]
+atlas = ExtResource("1_n30q5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir06c"]
+atlas = ExtResource("1_n30q5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibk8d"]
+atlas = ExtResource("1_n30q5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj4hl"]
+atlas = ExtResource("1_n30q5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bcod"]
+atlas = ExtResource("1_n30q5")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvaed"]
+atlas = ExtResource("1_n30q5")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8t86"]
+atlas = ExtResource("1_n30q5")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq3j7"]
+atlas = ExtResource("1_n30q5")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q0bqd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l81n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir06c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibk8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj4hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bcod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvaed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8t86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq3j7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n7hol"]
+load_path = "res://.godot/imported/Gas_Giant_Gourd_growth_stages_001.png-97a8d80ab13a77d1ad9ca7f48fc304f3.ctex"
+
+[resource]
+script = ExtResource("1_lsqye")
+plant_type = 2
+plant_name = "Gas Giant Gourd"
+description = "the gas giant gourd floats on its stalk because it is filled with helium as well as edible flesh. Boing. Boing."
+gestation_time = 5.0
+growth_time = 5.0
+yield_amount = 1
+plant_time = 2.0
+harvest_time = 2.0
+growth_texture = SubResource("CompressedTexture2D_n7hol")
+grown_animation = SubResource("SpriteFrames_q0bqd")
+metadata/_custom_type_script = "uid://djg4rq2khjpyt"

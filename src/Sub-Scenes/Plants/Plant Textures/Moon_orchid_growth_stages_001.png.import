@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqp5i5isxf5uo"
-path="res://.godot/imported/Heart_of_the_stars_animation_001.png-56a8a5a7868c14fed3be6f2340c2ba88.ctex"
+uid="uid://dahj5c55fwkdb"
+path="res://.godot/imported/Moon_orchid_growth_stages_001.png-8ef140df30f7a2f5464b77b33b998915.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Heart_of_the_stars_animation_001.png"
-dest_files=["res://.godot/imported/Heart_of_the_stars_animation_001.png-56a8a5a7868c14fed3be6f2340c2ba88.ctex"]
+source_file="res://src/Sub-Scenes/Plants/Plant Textures/Moon_orchid_growth_stages_001.png"
+dest_files=["res://.godot/imported/Moon_orchid_growth_stages_001.png-8ef140df30f7a2f5464b77b33b998915.ctex"]
 
 [params]
 

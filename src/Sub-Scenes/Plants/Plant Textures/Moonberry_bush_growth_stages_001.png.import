@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dahj5c55fwkdb"
-path="res://.godot/imported/Moon_orchid_growth_stages_001.png-526cf596daf595f556c19a586ddf2386.ctex"
+uid="uid://coa5vxbo3m58t"
+path="res://.godot/imported/Moonberry_bush_growth_stages_001.png-77aee8ccf68db47064dfc0e91d3c8dfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Moon_orchid_growth_stages_001.png"
-dest_files=["res://.godot/imported/Moon_orchid_growth_stages_001.png-526cf596daf595f556c19a586ddf2386.ctex"]
+source_file="res://src/Sub-Scenes/Plants/Plant Textures/Moonberry_bush_growth_stages_001.png"
+dest_files=["res://.godot/imported/Moonberry_bush_growth_stages_001.png-77aee8ccf68db47064dfc0e91d3c8dfc.ctex"]
 
 [params]
 

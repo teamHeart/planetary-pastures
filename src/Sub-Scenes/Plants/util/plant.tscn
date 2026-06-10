@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cnru6lpj4pgjs"]
+
+[ext_resource type="Script" uid="uid://bwpbln1rpgsl6" path="res://src/Sub-Scenes/Plants/util/plant.gd" id="1_gabcg"]
+[ext_resource type="Texture2D" uid="uid://cgkjvsw2f8tsg" path="res://src/Sub-Scenes/Plants/Plant Textures/Basket_Stinkhorn_growth_stages_001.png" id="2_24rq8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i55hd"]
+atlas = ExtResource("2_24rq8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0rwbe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i55hd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_aiu54"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.045378562]
+}
+
+[sub_resource type="Animation" id="Animation_e7m1a"]
+resource_name = "Sway"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1.5, 0.75, 1.5, 0.75),
+"update": 0,
+"values": [0.0, 0.02268928027592623, 0.04363323129985824, 0.02268928027592623]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fx6hy"]
+_data = {
+&"RESET": SubResource("Animation_aiu54"),
+&"Sway": SubResource("Animation_e7m1a")
+}
+
+[node name="Plant" type="Node2D" unique_id=88534449]
+texture_filter = 1
+script = ExtResource("1_gabcg")
+plant_type = 1
+
+[node name="FullGrown" type="AnimatedSprite2D" parent="." unique_id=2014432310]
+unique_name_in_owner = true
+skew = -0.045378562
+sprite_frames = SubResource("SpriteFrames_0rwbe")
+offset = Vector2(0, -16)
+
+[node name="Growing" type="Sprite2D" parent="." unique_id=1431125954]
+unique_name_in_owner = true
+position = Vector2(0, -16)
+texture = ExtResource("2_24rq8")
+hframes = 3
+
+[node name="Sway" type="AnimationPlayer" parent="." unique_id=1641385955]
+unique_name_in_owner = true
+root_node = NodePath("../FullGrown")
+libraries/ = SubResource("AnimationLibrary_fx6hy")

@@ -1,0 +1,139 @@
+[gd_resource type="Resource" script_class="PlantDetails" format=3 uid="uid://2pqk1leqyb2u"]
+
+[ext_resource type="Texture2D" uid="uid://bqp5i5isxf5uo" path="res://src/Sub-Scenes/Plants/Plant Textures/Heart_of_the_stars_animation_001.png" id="1_jg56e"]
+[ext_resource type="Texture2D" uid="uid://ctccxoriatr4q" path="res://src/Sub-Scenes/Plants/Plant Textures/Heart_of_the_Stars_growth_stages_001.png" id="2_4bbsd"]
+[ext_resource type="Script" uid="uid://djg4rq2khjpyt" path="res://src/Sub-Scenes/Plants/util/plant_details.gd" id="3_jg56e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eay1i"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elpry"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oepo3"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1xld"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51aar"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw4qs"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4hsy"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns2xd"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md6ug"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axvit"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhb53"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psoxh"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elr0f"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pucfd"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ttv3"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv6pr"]
+atlas = ExtResource("1_jg56e")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6jh25"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eay1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elpry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oepo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1xld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51aar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw4qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4hsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns2xd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md6ug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axvit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhb53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psoxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elr0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pucfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ttv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wv6pr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("3_jg56e")
+plant_type = 3
+plant_name = "Heart of the Stars"
+description = "It's the eye of the tiger! Bee-ner-neeee-ner! Bee-ner-nee-nee-ner!"
+gestation_time = 10.0
+growth_time = 30.0
+yield_amount = 5
+plant_time = 5.0
+harvest_time = 5.0
+growth_texture = ExtResource("2_4bbsd")
+grown_animation = SubResource("SpriteFrames_6jh25")
+metadata/_custom_type_script = "uid://djg4rq2khjpyt"
