@@ -4,13 +4,9 @@
 [ext_resource type="Script" uid="uid://bfxxaads1m627" path="res://src/Sub-Scenes/Garden Plot/gargen_plot.gd" id="1_p1jro"]
 [ext_resource type="Texture2D" uid="uid://b4yg53bg6wgr1" path="res://Images/lump.png" id="3_aiu54"]
 
-[sub_resource type="Curve" id="Curve_aiu54"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), -21.943846, 0.0, 0, 0]
-point_count = 2
-
 [sub_resource type="Gradient" id="Gradient_e7m1a"]
 offsets = PackedFloat32Array(0, 0.36875, 0.6875, 1)
-colors = PackedColorArray(0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0)
+colors = PackedColorArray(0.13333334, 0.12941177, 0.56078434, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0)
 
 [sub_resource type="Animation" id="Animation_aiu54"]
 length = 0.001
@@ -29,7 +25,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_e7m1a"]
 resource_name = "Sway"
-length = 4.0
+length = 8.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -38,10 +34,10 @@ tracks/0/path = NodePath(".:skew")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
+"times": PackedFloat32Array(0, 2, 4, 6),
 "transitions": PackedFloat32Array(1.5, 0.75, 1.5, 0.75),
 "update": 0,
-"values": [0.0, 0.06544985, 0.1308997, 0.06954046]
+"values": [0.0, 0.022689280275926236, 0.04363323129985824, 0.022689280275926236]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gb0aw"]
@@ -53,13 +49,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aiu54"]
 size = Vector2(32, 32)
 
-[node name="GardenPlot" type="Node2D" unique_id=178514170]
+[node name="GardenPlot" type="Node2D" unique_id=178514170 groups=["GardenPlots"]]
 script = ExtResource("1_p1jro")
-plot_id = 1
-plant_type = 1
 
 [node name="Particles" type="CPUParticles2D" parent="." unique_id=177395670]
-emitting = false
 local_coords = true
 spread = 180.0
 gravity = Vector2(0, 0)
@@ -67,7 +60,6 @@ initial_velocity_min = 24.6
 initial_velocity_max = 24.6
 damping_min = 22.27
 damping_max = 22.27
-scale_amount_curve = SubResource("Curve_aiu54")
 color_ramp = SubResource("Gradient_e7m1a")
 
 [node name="Flower" type="Sprite2D" parent="." unique_id=1128716378]

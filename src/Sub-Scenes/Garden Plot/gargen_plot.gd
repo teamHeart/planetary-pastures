@@ -7,14 +7,38 @@ signal plant_harvested(produced: int)
 enum PlantType { NONE, CARROT, TOMATO, LETTUCE }
 
 static var plant_dict: Dictionary = {
-	PlantType.NONE:  # A very large number to prevent growth
-	{"tex_offset": Vector2(2, 1), "growth_time": 0.0, "gestation_time": 0b1 << 30, "yield": 0},
+	PlantType.NONE:
+	{  # A very large number to prevent growth
+		"tex_offset": Vector2(2, 1),
+		"growth_time": 0.0,
+		"gestation_time": 0b1 << 30,
+		"yield": 0,
+		"harvest_time": 2.0
+	},
 	PlantType.CARROT:
-	{"tex_offset": Vector2(0, 0), "growth_time": 10.0, "gestation_time": 5.0, "yield": 1},
+	{
+		"tex_offset": Vector2(0, 0),
+		"growth_time": 10.0,
+		"gestation_time": 5.0,
+		"yield": 1,
+		"harvest_time": 2.0
+	},
 	PlantType.TOMATO:
-	{"tex_offset": Vector2(1, 0), "growth_time": 12.0, "gestation_time": 6.0, "yield": 2},
+	{
+		"tex_offset": Vector2(1, 0),
+		"growth_time": 12.0,
+		"gestation_time": 6.0,
+		"yield": 2,
+		"harvest_time": 2.0
+	},
 	PlantType.LETTUCE:
-	{"tex_offset": Vector2(2, 0), "growth_time": 8.0, "gestation_time": 4.0, "yield": 3}
+	{
+		"tex_offset": Vector2(2, 0),
+		"growth_time": 8.0,
+		"gestation_time": 4.0,
+		"yield": 3,
+		"harvest_time": 2.0
+	}
 }
 
 static var plot_counter: int = 0
@@ -36,12 +60,19 @@ var _is_grown: bool = false
 
 func _enter_tree() -> void:
 	# Ensure the plot_id is unique and correctly assigned
-	if plot_id == 0:
-		plot_id = plot_counter
-		plot_counter += 1
-		print("Assigned Plot ID: ", plot_id)
+	plot_id = plot_counter
 	name = "Plot_" + str(plot_id)
+	plot_counter += 1
 	add_to_group("GardenPlots", true)
+	print_rich(
+		(
+			"GardenPlot [color=blue]"
+			+ name
+			+ "[/color] entered tree with plot_id: [color=green]"
+			+ str(plot_id)
+			+ "[/color]"
+		)
+	)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -99,13 +130,19 @@ func _process(delta: float) -> void:
 
 
 func _get_details() -> Dictionary:
-	return {
+	print_rich(
+		"Getting details for [color=green]" + name + "[/color]"
+	)
+	var ret = {
+		"plot_id": plot_id,
 		"location": global_position,
-		"plant_type": plant_type,
+		"plant_type": plant_dict[plant_type].get("plant_type", PlantType.NONE),
 		"yield": plant_dict[plant_type].get("yield", 0),
 		"plant_time": plant_dict[plant_type].get("growth_time", 0.0),
 		"harvest_time": plant_dict[plant_type].get("gestation_time", 0.0)
 	}
+	print_rich("plot location: [color=green]" + str(ret) + "[/color]")
+	return ret
 
 
 func plant(_plant_type: PlantType) -> void:

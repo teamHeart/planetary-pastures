@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://d2gv5pvy5dpb1"]
+
+[ext_resource type="Texture2D" uid="uid://duns53u67v4nt" path="res://Images/Space_Buns_Yellow_walk_south.png" id="1_6krd5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7muf7"]
+atlas = ExtResource("1_6krd5")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvlvq"]
+atlas = ExtResource("1_6krd5")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1bvo"]
+atlas = ExtResource("1_6krd5")
+region = Rect2(64, 0, 32, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aqboc"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"East",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"North",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7muf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvlvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7muf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1bvo")
+}],
+"loop": true,
+"name": &"South",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"West",
+"speed": 5.0
+}]
+
+[node name="SpaceBun" type="Node2D" unique_id=992281789]
+position = Vector2(454, 244)
+scale = Vector2(10.045, 10.045)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1704425875]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_aqboc")
+animation = &"South"
+autoplay = "South"
+frame_progress = 0.90485114

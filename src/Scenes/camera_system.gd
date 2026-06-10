@@ -10,12 +10,13 @@ extends Node2D
 func _ready() -> void:
 	_camera.zoom = Vector2(def_zoom, def_zoom)
 
+
 func _process(_delta: float) -> void:
 	var center_offset: Vector2 = get_viewport_rect().size / 2
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
-	var offset: Vector2 = mouse_pos - center_offset
-	_camera.offset = -offset/_camera.zoom.x
-	_camera.position = offset
+	var offset: Vector2 = (mouse_pos - center_offset)
+	_camera.offset = -offset / _camera.zoom.x
+	_camera.position = offset*1.125
 
 
 func _input(event: InputEvent) -> void:
@@ -25,6 +26,16 @@ func _input(event: InputEvent) -> void:
 			zoom_in()
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 			zoom_out()
+	elif event is InputEventKey and event.pressed:
+		if event.keycode == KEY_F11:  # '+' key
+			DisplayServer.window_set_mode(
+				(
+					DisplayServer.WINDOW_MODE_WINDOWED
+					if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
+					else DisplayServer.WINDOW_MODE_FULLSCREEN
+				)
+			)
+			# OS.window_fullscreen = not OS.window_fullscreen
 
 
 func zoom_in() -> void:
