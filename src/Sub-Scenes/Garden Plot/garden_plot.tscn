@@ -10,12 +10,88 @@ colors = PackedColorArray(0.13333334, 0.12941177, 0.56078434, 1, 0, 1, 1, 1, 0, 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aiu54"]
 size = Vector2(32, 32)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vh5dp"]
+bg_color = Color(0.6, 0.6, 0.6, 0.49411765)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1jro"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+bg_color = Color(0.20577592, 0.9249237, 0.9999997, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.5634459, 0.8107856, 1)
+border_blend = true
+
+[sub_resource type="Theme" id="Theme_sjjhn"]
+ProgressBar/font_sizes/font_size = 1
+ProgressBar/styles/background = SubResource("StyleBoxFlat_vh5dp")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_p1jro")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4mao"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+bg_color = Color(0.21517026, 0.9243142, 0.9999998, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.60105884, 0.61854374, 1)
+border_blend = true
+
+[sub_resource type="Theme" id="Theme_q1mb2"]
+ProgressBar/font_sizes/font_size = 1
+ProgressBar/styles/background = SubResource("StyleBoxFlat_vh5dp")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_w4mao")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1mb2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5681i"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+bg_color = Color(0.624999, 0.9345864, 3.85046e-07, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25381958, 0.6238275, 1.92523e-07, 1)
+border_blend = true
+
 [node name="GardenPlot" type="Node2D" unique_id=178514170 groups=["GardenPlots"]]
 script = ExtResource("1_p1jro")
 
 [node name="Particles" type="CPUParticles2D" parent="." unique_id=177395670]
 position = Vector2(0, -8)
-emitting = false
 local_coords = true
 spread = 180.0
 gravity = Vector2(0, 0)
@@ -34,3 +110,48 @@ debug_color = Color(0, 0.6, 0.69803923, 0.1254902)
 [node name="Plant" parent="." unique_id=88534449 instance=ExtResource("2_vh5dp")]
 position = Vector2(0, 8)
 plant_type = 0
+
+[node name="Control" type="Control" parent="." unique_id=201275800]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 9.0
+offset_right = 15.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WaterBar" type="ProgressBar" parent="Control" unique_id=278637298]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 29.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_sjjhn")
+value = 32.98
+show_percentage = false
+
+[node name="GrowthBar" type="ProgressBar" parent="Control" unique_id=1168230076]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1.0
+offset_top = -1.0000002
+offset_right = 29.0
+offset_bottom = 0.99999976
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q1mb2")
+theme_override_styles/background = SubResource("StyleBoxFlat_q1mb2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5681i")
+value = 11.4
+show_percentage = false

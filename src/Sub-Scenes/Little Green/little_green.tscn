@@ -18,6 +18,7 @@ animations = [{
 radius = 16.03122
 
 [node name="Node2D" type="CharacterBody2D" unique_id=1476048170]
+motion_mode = 1
 script = ExtResource("1_t803k")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=633297189]

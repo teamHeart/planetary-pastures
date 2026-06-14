@@ -70,7 +70,7 @@ func _on_grown() -> void:
 	if plant_details.grown_animation != null:
 		growing_sprite.visible = false
 		grown_sprite.visible = true
-		grown_sprite.play("Default")
+		grown_sprite.play("default")
 	else:
 		growing_sprite.visible = true
 		grown_sprite.visible = false
@@ -79,6 +79,7 @@ func _on_grown() -> void:
 
 
 func _on_harvested() -> void:
+	plant_type = PlantDetails.PlantType.NONE
 	growing_sprite.visible = false
 	grown_sprite.visible = false
 	sway.play("RESET")

@@ -1,14 +1,18 @@
 class_name LittleGreen
 extends CharacterBody2D
 
+@warning_ignore_start("unused_signal")
+@warning_ignore_start("unused_private_class_variable")
+
 signal request_plot_details(plot_id: int)
 signal planted_on_plot(plot_id: int)
 signal harvested_from_plot(plot_id: int)
 
+
 ## Elements in plants_holding Queue are dictionaries with the following structure:[br]
 ## {
 ##    [i][b]"plant_type"[/b][/i]: [code]PlantType[/code],
-##    [i][b]"count"[plant_harvested/b][/i]: [code]int[/code]
+##    [i][b]"count"[/b][/i]: [code]int[/code]
 ## }
 var plants_holding: Queue = Queue.new()
 
@@ -17,12 +21,6 @@ var harvest_queue: Queue = Queue.new()
 var state_machine: StateMachine = StateMachine.new()
 
 var _target_plot_id: int = -1
-var _target_plot_details: Dictionary = {}
-var _target_plot_position: Vector2 = Vector2.ZERO
-var _target_plot_plant_type: GardenPlot.PlantType = GardenPlot.PlantType.NONE
-var _target_plot_yield: int = 0
-var _target_plot_plant_time: float = 0.0
-var _target_plot_harvest_time: float = 0.0
 
 var _is_traveling: bool = false
 var _processing_timer: float = 0.0
@@ -33,15 +31,7 @@ func _ready() -> void:
 	call_deferred("connect_to_plots")
 	## Sets Little Green's target location to the plot with plot_id from the request
 	get_tree().get_root().find_child("Garden", true, false).call_deferred(
-		"connect",
-		"return_plot_details",
-		func(_details: Dictionary) -> void:
-			_target_plot_details = _details
-			_target_plot_position = _details.get("location", Vector2.ZERO)
-			_target_plot_plant_type = _details.get("plant_type", GardenPlot.PlantType.NONE)
-			_target_plot_yield = _details.get("yield", 0)
-			_target_plot_plant_time = _details.get("plant_time", 0.0)
-			_target_plot_harvest_time = _details.get("harvest_time", 0.0)
+		"connect", "return_plot_details", func(_details: PlantDetails) -> void: pass
 	)
 
 	# Set up State Machine
@@ -71,79 +61,20 @@ func _ready() -> void:
 	idle_state.set_exit(func() -> void: pass)
 	#endregion Idle State
 
-	#region Plantingplant_harvested State
-	planting_state.set_enter(
-		func() -> void:
-			_target_plot_id = plant_queue.pop()
-			_is_traveling = true
-			emit_signal("request_plot_details", _target_plot_id)
-	)
-	planting_state.set_process(
-		func(_delta: float) -> void:
-			match position.distance_to(_target_plot_position):
-				_ when position.distance_to(_target_plot_position) > 5.0:
-					var direction: Vector2 = (_target_plot_position - position).normalized()
-					velocity = direction * Parameters.get_little_green_move_speed()
-					move_and_slide()
 
-				_:
-					if _is_traveling:
-						_is_traveling = false
-					if (
-						_processing_timer
-						>= (
-							_target_plot_plant_time
-							/ Parameters.get_little_green_planting_speed_multiplier()
-						)
-					):
-						emit_signal("planted_on_plot", _target_plot_id)
-					_processing_timer += (
-						_delta * Parameters.get_little_green_planting_speed_multiplier()
-					)
-	)
+	#region Planting State
+	planting_state.set_enter(func() -> void: pass)
+	planting_state.set_process(func(_delta: float) -> void: pass)
 	planting_state.set_exit(func() -> void: pass)
 	#endregion Planting State
 
-	#region Harvesting State
-	harvesting_state.set_enter(
-		func() -> void:
-			_target_plot_id = harvest_queue.pop()
-			_is_traveling = true
-			_processing_timer = 0.0
-			emit_signal("request_plot_details", _target_plot_id)
-	)
-	harvesting_state.set_process(
-		func(_delta: float) -> void:
-			match position.distance_to(_target_plot_position):
-				_ when position.distance_to(_target_plot_position) > 5.0:
-					var direction: Vector2 = (_target_plot_position - position).normalized()
-					velocity = direction * Parameters.get_little_green_move_speed()
-					move_and_slide()
 
-				_:
-					if _is_traveling:
-						_is_traveling = false
-					if (
-						_processing_timer
-						>= (
-							_target_plot_harvest_time
-							/ Parameters.get_little_green_harvesting_speed_multiplier()
-						)
-					):
-						if (
-							_target_plot_plant_type != GardenPlot.PlantType.NONE
-							and _target_plot_yield > 0
-						):
-							plants_holding.push(
-								{"plant_type": _target_plot_plant_type, "count": _target_plot_yield}
-							)
-						state_machine.change_state(idle_state)
-					_processing_timer += (
-						_delta * Parameters.get_little_green_harvesting_speed_multiplier()
-					)
-	)
-	harvesting_state.set_exit(func() -> void: emit_signal("harvested_from_plot", _target_plot_id))
+	#region Harvesting State
+	harvesting_state.set_enter(func() -> void: pass)
+	harvesting_state.set_process(func(_delta: float) -> void: pass)
+	harvesting_state.set_exit(func() -> void: pass)
 	#endregion
+
 
 	#region Unloading State
 	unloading_state.set_enter(func() -> void: pass)
