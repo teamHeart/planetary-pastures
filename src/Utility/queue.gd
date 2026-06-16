@@ -26,6 +26,9 @@ func peek_all()->Array:
 func push(item):
 	_items.append(item)
 
+func push_front(item):
+	_items.insert(0, item)
+
 func pop()->Variant:
 	if !is_empty():
 		return _items.pop_front()

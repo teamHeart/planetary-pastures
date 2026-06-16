@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Tool" format=3 uid="uid://dbdkwxyutet"]
+
+[ext_resource type="Texture2D" uid="uid://dbshoihyrjgbw" path="res://src/Sub-Scenes/Tools/Tool Textures/watering_can.png" id="1_ailu1"]
+[ext_resource type="Script" uid="uid://crbha2frmykii" path="res://src/Sub-Scenes/Tools/util/tool.gd" id="1_wfuga"]
+
+[resource]
+script = ExtResource("1_wfuga")
+name = "Watering Can"
+type = 2
+icon = ExtResource("1_ailu1")
+metadata/_custom_type_script = "uid://crbha2frmykii"

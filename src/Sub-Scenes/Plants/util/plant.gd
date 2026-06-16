@@ -37,7 +37,6 @@ var _dirty: bool = false
 var _plant_details: PlantDetails = NONE
 var _plant_type: PlantDetails.PlantType = plant_type
 
-
 @onready var growing_sprite: Sprite2D = $Growing
 @onready var grown_sprite: AnimatedSprite2D = $FullGrown
 @onready var sway: AnimationPlayer = $Sway
@@ -83,3 +82,10 @@ func _on_harvested() -> void:
 	growing_sprite.visible = false
 	grown_sprite.visible = false
 	sway.play("RESET")
+
+
+func tool() -> Tool.Type:
+	if plant_type >= PlantDetails.PlantType.PULSAR_PUFF:
+		return plant_type as Tool.Type
+	print_rich("Plant [color=yellow]" + name + "[/color] somehow isn't a plant?")
+	return Tool.Type.SEEDS

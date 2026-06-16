@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dt5hcftiegp2x"]
 
 [ext_resource type="Script" uid="uid://bfxxaads1m627" path="res://src/Sub-Scenes/Garden Plot/gargen_plot.gd" id="1_p1jro"]
+[ext_resource type="Texture2D" uid="uid://cwgs41w8yaq4y" path="res://src/Sub-Scenes/Garden Plot/water_layer.png" id="2_p1jro"]
 [ext_resource type="PackedScene" uid="uid://cnru6lpj4pgjs" path="res://src/Sub-Scenes/Plants/util/plant.tscn" id="2_vh5dp"]
+[ext_resource type="Texture2D" uid="uid://ce7vn7602sug1" path="res://src/Sub-Scenes/Garden Plot/fertilizer_layer.png" id="3_q1mb2"]
 
 [sub_resource type="Gradient" id="Gradient_e7m1a"]
 offsets = PackedFloat32Array(0, 0.36875, 0.6875, 1)
@@ -88,6 +90,7 @@ border_color = Color(0.25381958, 0.6238275, 1.92523e-07, 1)
 border_blend = true
 
 [node name="GardenPlot" type="Node2D" unique_id=178514170 groups=["GardenPlots"]]
+texture_filter = 1
 script = ExtResource("1_p1jro")
 
 [node name="Particles" type="CPUParticles2D" parent="." unique_id=177395670]
@@ -105,7 +108,15 @@ color_ramp = SubResource("Gradient_e7m1a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=848423006]
 shape = SubResource("RectangleShape2D_aiu54")
-debug_color = Color(0, 0.6, 0.69803923, 0.1254902)
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="WaterLayer" type="Sprite2D" parent="." unique_id=386699143]
+unique_name_in_owner = true
+texture = ExtResource("2_p1jro")
+
+[node name="FertilizerLayer" type="Sprite2D" parent="." unique_id=426736238]
+unique_name_in_owner = true
+texture = ExtResource("3_q1mb2")
 
 [node name="Plant" parent="." unique_id=88534449 instance=ExtResource("2_vh5dp")]
 position = Vector2(0, 8)

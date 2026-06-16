@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://plt2xx5awnj4"
-path="res://.godot/imported/Stardust_fertilizer_001.png-2b87487877687e3944019bd8bb80a7e7.ctex"
+uid="uid://dlfdu84mkqmhg"
+path="res://.godot/imported/Pulsar_flower_animated_001.png-52da3d3bb0ecba6793c7562f4d6ff180.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Raw Images/Stardust_fertilizer_001.png"
-dest_files=["res://.godot/imported/Stardust_fertilizer_001.png-2b87487877687e3944019bd8bb80a7e7.ctex"]
+source_file="res://src/Sub-Scenes/Plants/Plant Textures/Pulsar_flower_animated_001.png"
+dest_files=["res://.godot/imported/Pulsar_flower_animated_001.png-52da3d3bb0ecba6793c7562f4d6ff180.ctex"]
 
 [params]
 

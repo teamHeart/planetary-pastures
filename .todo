@@ -1,0 +1,22 @@
+[
+  {
+    "id": "mqfwrah3kw7ojtk0pei",
+    "text": "mechanics explanation go here",
+    "isCompleted": false,
+    "source": "codebase",
+    "file": "/home/prncssclr/Documents/Planetary-Pastures/planetary-pastures/README.md",
+    "line": 12,
+    "dateCreated": "2026-06-16T00:32:44.487Z",
+    "category": "general"
+  },
+  {
+    "id": "mqfwrah3n2bspgdy7yt",
+    "text": "controls explanation goes here",
+    "isCompleted": false,
+    "source": "codebase",
+    "file": "/home/prncssclr/Documents/Planetary-Pastures/planetary-pastures/README.md",
+    "line": 16,
+    "dateCreated": "2026-06-16T00:32:44.487Z",
+    "category": "general"
+  }
+]

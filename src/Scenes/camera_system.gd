@@ -12,14 +12,32 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	var center_offset: Vector2 = get_viewport_rect().size / 2
-	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
-	var offset: Vector2 = (mouse_pos - center_offset)
-	_camera.offset = -offset / _camera.zoom.x
-	_camera.position = offset*1.125
+	pass
+	# var center_offset: Vector2 = get_viewport_rect().size / 2
+	# var mouse_pos: Vector2 = get_viewport().get_mouse_position()
+	# var offset: Vector2 = (mouse_pos - center_offset)
+	# _camera.offset = -offset / _camera.zoom.x
+	# _camera.position = offset*1.125
 
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		match event.keycode:
+			KEY_W:
+				_camera.position.y -= 50 / _camera.zoom.x
+				get_viewport().set_input_as_handled()
+			KEY_S:
+				_camera.position.y += 50 / _camera.zoom.x
+				get_viewport().set_input_as_handled()
+			KEY_A:
+				_camera.position.x -= 50 / _camera.zoom.x
+				get_viewport().set_input_as_handled()
+			KEY_D:
+				_camera.position.x += 50 / _camera.zoom.x
+				get_viewport().set_input_as_handled()
+			_:
+				pass
+
 	#zoom in on mouse wheel up, zoom out on mouse wheel down
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:

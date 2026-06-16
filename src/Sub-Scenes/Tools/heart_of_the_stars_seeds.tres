@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Tool" format=3 uid="uid://bs18u41brgksm"]
+
+[ext_resource type="Texture2D" uid="uid://b7dck4xojjd6n" path="res://src/Sub-Scenes/Tools/Tool Textures/heart_of_the_stars_seeds.png" id="1_bag3a"]
+[ext_resource type="Script" uid="uid://crbha2frmykii" path="res://src/Sub-Scenes/Tools/util/tool.gd" id="1_when5"]
+
+[resource]
+script = ExtResource("1_when5")
+name = "Heart of the Stars Seeds"
+type = 26
+icon = ExtResource("1_bag3a")
+countable = true
+max_quantity = 100
+metadata/_custom_type_script = "uid://crbha2frmykii"

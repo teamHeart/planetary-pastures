@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Tool" format=3 uid="uid://btj2wku5p6m8d"]
+
+[ext_resource type="Texture2D" uid="uid://plt2xx5awnj4" path="res://src/Sub-Scenes/Tools/Tool Textures/Stardust_fertilizer_001.png" id="1_gg203"]
+[ext_resource type="Script" uid="uid://crbha2frmykii" path="res://src/Sub-Scenes/Tools/util/tool.gd" id="1_u82qc"]
+
+[resource]
+script = ExtResource("1_u82qc")
+name = "Fertilizer"
+type = 3
+icon = ExtResource("1_gg203")
+countable = true
+max_quantity = 100
+metadata/_custom_type_script = "uid://crbha2frmykii"

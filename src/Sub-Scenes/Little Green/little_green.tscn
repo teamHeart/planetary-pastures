@@ -1,16 +1,50 @@
 [gd_scene format=3 uid="uid://05e2x1147qcd"]
 
-[ext_resource type="Texture2D" uid="uid://tepdgsjaxoy2" path="res://icon.svg" id="1_40gtr"]
 [ext_resource type="Script" uid="uid://bipqk1qsfmk8m" path="res://src/Sub-Scenes/Little Green/little_green.gd" id="1_t803k"]
+[ext_resource type="Texture2D" uid="uid://cgct67cmfi3f7" path="res://src/Sub-Scenes/Little Green/Little Green Textures/LG_walk_south.png" id="2_t803k"]
+[ext_resource type="Texture2D" uid="uid://bun0f0eok5hxu" path="res://src/Sub-Scenes/Little Green/Little Green Textures/LG.png" id="3_bmfpp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t12k1"]
+atlas = ExtResource("2_t803k")
+region = Rect2(0, 0, 34, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmfpp"]
+atlas = ExtResource("2_t803k")
+region = Rect2(34, 0, 34, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x23o"]
+atlas = ExtResource("2_t803k")
+region = Rect2(68, 0, 34, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk28l"]
+atlas = ExtResource("3_bmfpp")
+region = Rect2(0, 0, 28, 49)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2d8a4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_40gtr")
+"texture": SubResource("AtlasTexture_t12k1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmfpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x23o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmfpp")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk28l")
+}],
+"loop": true,
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -22,8 +56,11 @@ motion_mode = 1
 script = ExtResource("1_t803k")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=633297189]
-scale = Vector2(0.25, 0.25)
+unique_name_in_owner = true
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_2d8a4")
+frame_progress = 0.26084298
+offset = Vector2(0, -10.195)
 
 [node name="SearchCollider" type="Area2D" parent="." unique_id=1809244157]
 
