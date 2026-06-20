@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="PlantDetails" format=3 uid="uid://cpsemdhv3jh4u"]
+
+[ext_resource type="Script" uid="uid://djg4rq2khjpyt" path="res://src/Sub-Scenes/Plants/util/plant_details.gd" id="1_43cdw"]
+[ext_resource type="Texture2D" uid="uid://02ohxu65p6bo" path="res://src/Sub-Scenes/Plants/Plant Textures/Stellar_Cabbage_growth_stages_001.png" id="1_rwfg6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvvn0"]
+atlas = ExtResource("1_rwfg6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_stm7k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvvn0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_43cdw")
+plant_type = 21
+plant_name = "Stellar Cabbage"
+description = "A blue leafy vegetable that’s a staple for many galactic cuisines."
+plant_time = 2
+gestation_time = 60
+growth_time = 120
+harvest_time = 2
+yield_amount = 22
+growth_texture = ExtResource("1_rwfg6")
+grown_animation = SubResource("SpriteFrames_stm7k")
+metadata/_custom_type_script = "uid://djg4rq2khjpyt"

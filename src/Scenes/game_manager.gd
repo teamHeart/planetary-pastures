@@ -1,9 +1,8 @@
-# FIXME: Ugh
 extends Node
 
 var inventory: Dictionary[Tool.Type, int] = {}
 var current_tool: Tool.Type = Tool.Type.NONE
-var last_seed_tool: Tool.Type = Tool.Type.HEART_OF_THE_STARS_SEEDS
+var last_seed_tool: Tool.Type = Tool.Type.PULSAR_PUFF_SEEDS
 
 @onready var game_scene: Node2D = $GameScene
 @onready var ui_layer: Control = %UILayer
@@ -115,28 +114,29 @@ func _on_plot_clicked(plot: GardenPlot) -> void:
 
 	#water this plot if Little Green is holding the watering can
 	elif current_tool == Tool.Type.WATERING_CAN:
-		little_green.add_action_to_queue(
-			{
-				"type": "water_plot",
-				"plot": plot,
-			}
+		(
+			little_green
+			. add_action_to_queue(
+				{
+					"type": "water_plot",
+					"plot": plot,
+				}
+			)
 		)
 		print_rich(
-			(
-				"Added action to water plot with id: [color=#0000ff]"
-				+ str(plot.plot_id)
-				+ "[/color]"
-			)
+			"Added action to water plot with id: [color=#0000ff]" + str(plot.plot_id) + "[/color]"
 		)
 
 	#fertilize this plot if Little Green is holding the fertilizer
 	elif current_tool == Tool.Type.FERTILIZER:
-
-		little_green.add_action_to_queue(
-			{
-				"type": "fertilize_plot",
-				"plot": plot,
-			}
+		(
+			little_green
+			. add_action_to_queue(
+				{
+					"type": "fertilize_plot",
+					"plot": plot,
+				}
+			)
 		)
 		print_rich(
 			(
@@ -145,6 +145,7 @@ func _on_plot_clicked(plot: GardenPlot) -> void:
 				+ "[/color]"
 			)
 		)
+
 
 func _on_plant_grown(plot: GardenPlot) -> void:
 	print_rich(
@@ -155,3 +156,6 @@ func _on_plant_grown(plot: GardenPlot) -> void:
 		)
 	)
 	little_green.harvest_queue.push(plot)
+
+func _on_plant_harvested(plant: PlantDetails) -> void:
+	ui_layer.add_watts(plant.yield_amount)

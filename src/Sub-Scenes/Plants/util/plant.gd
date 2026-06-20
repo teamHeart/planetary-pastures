@@ -3,11 +3,18 @@ class_name Plant
 extends Node2D
 
 const NONE = preload("uid://80xiobujoo3g")
+const PULSAR_PUFF = preload("uid://beie48irrsv5q")
+const ROCARROT = preload("uid://blrr3ltpvfmqw")
+const SATUROSE = preload("uid://bnd6r7nmwnsqu")
+const WHITE_DWARF_DROPFLOWER = preload("uid://cxe1cp7br84i")
+const MOON_ORCHID = preload("uid://dpfcujmlgqwko")
+const NURSERY_MELON = preload("uid://1db0m70xfspo")
+const STELLAR_CABBAGE = preload("uid://cpsemdhv3jh4u")
+const MOONBERRY_BUSH = preload("uid://cm0ddh4blgue2")
+const STAR_CLUSTER = preload("uid://1b7x1hmql4y2")
 const BASKET_STINKHORN = preload("uid://baypo8y6hraqw")
 const GAS_GIANT_GOURD = preload("uid://dmxqmgm0688e1")
 const HEART_OF_THE_STARS = preload("uid://2pqk1leqyb2u")
-const MOON_ORCHID = preload("uid://dpfcujmlgqwko")
-const MOONBERRY_BUSH = preload("uid://cm0ddh4blgue2")
 
 @export var plant_type: PlantDetails.PlantType:
 	get:
@@ -17,16 +24,30 @@ const MOONBERRY_BUSH = preload("uid://cm0ddh4blgue2")
 		match _plant_type:
 			PlantDetails.PlantType.NONE:
 				_plant_details = NONE
+			PlantDetails.PlantType.PULSAR_PUFF:
+				_plant_details = PULSAR_PUFF
+			PlantDetails.PlantType.ROCARROT:
+				_plant_details = ROCARROT
+			PlantDetails.PlantType.SATUROSE:
+				_plant_details = SATUROSE
+			PlantDetails.PlantType.WHITE_DWARF_DROPFLOWER:
+				_plant_details = WHITE_DWARF_DROPFLOWER
+			PlantDetails.PlantType.MOON_ORCHID:
+				_plant_details = MOON_ORCHID
+			PlantDetails.PlantType.NURSERY_MELON:
+				_plant_details = NURSERY_MELON
+			PlantDetails.PlantType.STELLAR_CABBAGE:
+				_plant_details = STELLAR_CABBAGE
+			PlantDetails.PlantType.MOONBERRY_BUSH:
+				_plant_details = MOONBERRY_BUSH
+			PlantDetails.PlantType.STAR_CLUSTER:
+				_plant_details = STAR_CLUSTER
 			PlantDetails.PlantType.BASKET_STINKHORN:
 				_plant_details = BASKET_STINKHORN
 			PlantDetails.PlantType.GAS_GIANT_GOURD:
 				_plant_details = GAS_GIANT_GOURD
 			PlantDetails.PlantType.HEART_OF_THE_STARS:
 				_plant_details = HEART_OF_THE_STARS
-			PlantDetails.PlantType.MOON_ORCHID:
-				_plant_details = MOON_ORCHID
-			PlantDetails.PlantType.MOONBERRY_BUSH:
-				_plant_details = MOONBERRY_BUSH
 		_dirty = true
 
 var plant_details: PlantDetails:

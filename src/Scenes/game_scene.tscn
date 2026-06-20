@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://qu1w8qmg87je" path="res://src/Scenes/ui_layer/ui_layer.tscn" id="2_utcj8"]
 [ext_resource type="PackedScene" uid="uid://dt5hcftiegp2x" path="res://src/Sub-Scenes/Garden Plot/garden_plot.tscn" id="3_rri7m"]
 [ext_resource type="Script" uid="uid://cpvl4gwo3hoeo" path="res://src/Sub-Scenes/garden.gd" id="5_ggyy0"]
-[ext_resource type="PackedScene" uid="uid://05e2x1147qcd" path="res://src/Sub-Scenes/Little Green/little_green.tscn" id="5_rri7m"]
+[ext_resource type="PackedScene" uid="uid://05e2x1147qcd" path="res://src/Sub-Scenes/Actors/Little Green/little_green.tscn" id="5_rri7m"]
 [ext_resource type="Script" uid="uid://b1tru4k1in8g7" path="res://src/Scenes/camera_system.gd" id="7_yxjmn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yxjmn"]

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="PlantDetails" format=3 uid="uid://1db0m70xfspo"]
+
+[ext_resource type="Script" uid="uid://djg4rq2khjpyt" path="res://src/Sub-Scenes/Plants/util/plant_details.gd" id="1_akgim"]
+[ext_resource type="Texture2D" uid="uid://dhdjvtjbypjt4" path="res://src/Sub-Scenes/Plants/Plant Textures/Nursery_melon_growth_stages_001.png" id="1_dmr4x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eftq"]
+atlas = ExtResource("1_dmr4x")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oroi0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eftq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_akgim")
+plant_type = 20
+plant_name = "Nursery Melon"
+description = "You can see flecks of light moving around on the outer rind of this melon. The fruit inside is sweet and juicy."
+plant_time = 2
+gestation_time = 60
+growth_time = 120
+harvest_time = 2
+yield_amount = 20
+growth_texture = ExtResource("1_dmr4x")
+grown_animation = SubResource("SpriteFrames_oroi0")
+metadata/_custom_type_script = "uid://djg4rq2khjpyt"

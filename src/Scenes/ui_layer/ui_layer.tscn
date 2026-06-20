@@ -2,6 +2,14 @@
 
 [ext_resource type="Theme" uid="uid://difeauoni3r3y" path="res://src/Utility/UI.tres" id="1_esiei"]
 [ext_resource type="Script" uid="uid://donuht5pe6hdt" path="res://src/Scenes/ui_layer/ui_layer.gd" id="2_1n8tp"]
+[ext_resource type="Texture2D" uid="uid://dd438dbl03qyu" path="res://Images/energy.png" id="3_1n8tp"]
+[ext_resource type="Script" uid="uid://ipwfvor7sh5o" path="res://src/Scenes/ui_layer/corner_menu.gd" id="3_htvjp"]
+[ext_resource type="Texture2D" uid="uid://bkifwxxmv7g8w" path="res://Images/menu.png" id="3_nsi0c"]
+[ext_resource type="Texture2D" uid="uid://8j3q63bv8tdg" path="res://Images/item.png" id="4_diq1j"]
+[ext_resource type="Texture2D" uid="uid://cdxguw3chfml3" path="res://Images/buns.png" id="6_htvjp"]
+[ext_resource type="Texture2D" uid="uid://dics24ft3g8vq" path="res://Images/settings.png" id="7_diq1j"]
+[ext_resource type="Texture2D" uid="uid://lp55aoggk0r0" path="res://Images/exit.png" id="7_f04gu"]
+[ext_resource type="Script" uid="uid://dov5c7ssen31x" path="res://src/Scenes/ui_layer/exit.gd" id="9_f04gu"]
 
 [node name="UILayer" type="Control" unique_id=1329609655]
 texture_filter = 1
@@ -70,3 +78,75 @@ bbcode_enabled = true
 text = "[rainbow]gay[/rainbow]"
 fit_content = true
 autowrap_mode = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer" unique_id=273164721]
+custom_minimum_size = Vector2(384, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer2" unique_id=549245279]
+layout_mode = 2
+
+[node name="WattCounter" type="RichTextLabel" parent="MarginContainer/PanelContainer2/HBoxContainer" unique_id=746054158]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[tornado radius=0 freq=0]0 W[/tornado]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="CenterContainer" type="MarginContainer" parent="MarginContainer" unique_id=1023674561]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+script = ExtResource("3_htvjp")
+
+[node name="Container" type="VBoxContainer" parent="MarginContainer/CenterContainer" unique_id=1095037019]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Spacer" type="ReferenceRect" parent="MarginContainer/CenterContainer/Container" unique_id=1720791404]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+
+[node name="Items" type="Button" parent="MarginContainer/CenterContainer/Container" unique_id=1674519573]
+unique_name_in_owner = true
+z_index = 5
+layout_mode = 2
+icon = ExtResource("4_diq1j")
+
+[node name="Shop" type="Button" parent="MarginContainer/CenterContainer/Container" unique_id=1754824433]
+unique_name_in_owner = true
+z_index = 4
+layout_mode = 2
+icon = ExtResource("3_1n8tp")
+
+[node name="Buns" type="Button" parent="MarginContainer/CenterContainer/Container" unique_id=927889367]
+unique_name_in_owner = true
+z_index = 3
+layout_mode = 2
+icon = ExtResource("6_htvjp")
+
+[node name="Settings" type="Button" parent="MarginContainer/CenterContainer/Container" unique_id=1323325781]
+unique_name_in_owner = true
+z_index = 2
+layout_mode = 2
+icon = ExtResource("7_diq1j")
+
+[node name="Exit" type="Button" parent="MarginContainer/CenterContainer/Container" unique_id=581994475]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 2
+icon = ExtResource("7_f04gu")
+script = ExtResource("9_f04gu")
+
+[node name="Menu" type="Button" parent="MarginContainer/CenterContainer" unique_id=1470956656]
+unique_name_in_owner = true
+z_index = 6
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = ExtResource("3_nsi0c")

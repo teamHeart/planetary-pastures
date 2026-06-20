@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="PlantDetails" format=3 uid="uid://beie48irrsv5q"]
+
+[ext_resource type="Texture2D" uid="uid://dlfdu84mkqmhg" path="res://src/Sub-Scenes/Plants/Plant Textures/Pulsar_flower_animated_001.png" id="1_lkjn2"]
+[ext_resource type="Script" uid="uid://djg4rq2khjpyt" path="res://src/Sub-Scenes/Plants/util/plant_details.gd" id="1_xrd7t"]
+[ext_resource type="Texture2D" uid="uid://dwpf0hov76gy2" path="res://src/Sub-Scenes/Plants/Plant Textures/Pulsar_flower_Pultunia_maybe_growth_stages_001.png" id="2_tebx3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y46fg"]
+atlas = ExtResource("1_lkjn2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ddo2"]
+atlas = ExtResource("1_lkjn2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_suypw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y46fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ddo2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[resource]
+script = ExtResource("1_xrd7t")
+plant_type = 15
+plant_name = "Pulsar Puff"
+description = "Its seed pods exhibit unusual amounts of rotation when carried on the wind."
+plant_time = 2
+gestation_time = 10
+growth_time = 20
+harvest_time = 2
+yield_amount = 5
+growth_texture = ExtResource("2_tebx3")
+grown_animation = SubResource("SpriteFrames_suypw")
+metadata/_custom_type_script = "uid://djg4rq2khjpyt"

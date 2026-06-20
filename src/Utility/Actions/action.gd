@@ -5,14 +5,18 @@ extends Resource
 ## the action queues of Little Green and the Space Buns.
 
 @warning_ignore("unused_signal")
-signal action_completed(action: Action)
+signal action_completed
 
 var object: Node = null
 
 
 func _init(_object: Node) -> void:
+	action_completed.connect(Callable(self, "_on_completed"))
 	object = _object
 
 
 func execute(_delta: float) -> void:
-	assert(false, "Execute method must be implemented by subclasses of Action")
+	pass
+
+func _on_completed() -> void:
+	free()

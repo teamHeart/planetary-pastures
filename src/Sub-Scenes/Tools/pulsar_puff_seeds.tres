@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Tool" format=3 uid="uid://bs2d5svqwskvw"]
+
+[ext_resource type="Texture2D" uid="uid://8j3q63bv8tdg" path="res://Images/item.png" id="1_0u5od"]
+[ext_resource type="Script" uid="uid://crbha2frmykii" path="res://src/Sub-Scenes/Tools/util/tool.gd" id="2_h3k0m"]
+
+[resource]
+script = ExtResource("2_h3k0m")
+name = "Pulsar Puff Seeds"
+type = 15
+icon = ExtResource("1_0u5od")
+countable = true
+max_quantity = 100
+metadata/_custom_type_script = "uid://crbha2frmykii"

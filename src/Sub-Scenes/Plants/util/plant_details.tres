@@ -4,3 +4,5 @@
 
 [resource]
 script = ExtResource("1_v58ap")
+yield_amount = 0
+harvest_time = 0

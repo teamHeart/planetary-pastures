@@ -14,7 +14,6 @@ func _init(_object: Node, _destination: Vector2, _move_speed: float) -> void:
 
 
 func execute(delta: float) -> void:
-
 	var direction: Vector2 = object.position.direction_to(destination)
 	var vel: Vector2 = Vector2.ZERO
 	var distance: float = object.position.distance_to(destination)
@@ -32,7 +31,7 @@ func execute(delta: float) -> void:
 	if distance < 0.05:
 		object.position = destination
 		object.velocity = Vector2.ZERO
-		emit_signal("action_completed", self)
+		emit_signal("action_completed")
 		return
 
 	# Move the object using its velocity

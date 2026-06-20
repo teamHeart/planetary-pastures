@@ -20,14 +20,14 @@ animations = [{
 
 [resource]
 script = ExtResource("2_tli66")
-plant_type = 5
+plant_type = 22
 plant_name = "Moonberry Bush"
-description = "Super floaty berries"
-plant_time = 5.0
-gestation_time = 12.0
-growth_time = 8.0
-harvest_time = 7.0
-yield_amount = 5
+description = "Moonberries are a delicious fruit, popular in dishes designed to pretend desserts have health benefits."
+plant_time = 2
+gestation_time = 120
+growth_time = 60
+harvest_time = 2
+yield_amount = 25
 growth_texture = ExtResource("1_1f3xa")
 grown_animation = SubResource("SpriteFrames_khwye")
 metadata/_custom_type_script = "uid://djg4rq2khjpyt"

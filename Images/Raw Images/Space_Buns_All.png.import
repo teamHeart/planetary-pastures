@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgct67cmfi3f7"
-path="res://.godot/imported/LG_walk_south.png-fd93d242f84570611bf87747a6a4b848.ctex"
+uid="uid://350lm0ad68se"
+path="res://.godot/imported/Space_Buns_All.png-a874d38ce725f196cb67fe87fa8e5c7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Sub-Scenes/Little Green/Little Green Textures/LG_walk_south.png"
-dest_files=["res://.godot/imported/LG_walk_south.png-fd93d242f84570611bf87747a6a4b848.ctex"]
+source_file="res://Images/Raw Images/Space_Buns_All.png"
+dest_files=["res://.godot/imported/Space_Buns_All.png-a874d38ce725f196cb67fe87fa8e5c7f.ctex"]
 
 [params]
 

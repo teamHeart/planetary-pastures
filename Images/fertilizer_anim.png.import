@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bun0f0eok5hxu"
-path="res://.godot/imported/LG.png-a5e0df13cc21a3a1c7c90349b067879e.ctex"
+uid="uid://dqxr0ddmxujpb"
+path="res://.godot/imported/fertilizer_anim.png-e8081c4315f36001875cd392c89627ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Sub-Scenes/Little Green/Little Green Textures/LG.png"
-dest_files=["res://.godot/imported/LG.png-a5e0df13cc21a3a1c7c90349b067879e.ctex"]
+source_file="res://Images/fertilizer_anim.png"
+dest_files=["res://.godot/imported/fertilizer_anim.png-e8081c4315f36001875cd392c89627ef.ctex"]
 
 [params]
 

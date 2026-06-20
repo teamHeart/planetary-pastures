@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dtip70ol5ofnt"]
+
+[ext_resource type="Script" uid="uid://2xhnujajnu48" path="res://src/Sub-Scenes/Actors/util/actor.gd" id="1_3nvvv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3nvvv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xfc1m"]
+
+[node name="Actor" type="CharacterBody2D" unique_id=1535101481]
+motion_mode = 1
+script = ExtResource("1_3nvvv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1734848690]
+sprite_frames = SubResource("SpriteFrames_3nvvv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=924765485]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1508438147]
+shape = SubResource("CircleShape2D_xfc1m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1010178936]
+shape = SubResource("CircleShape2D_xfc1m")

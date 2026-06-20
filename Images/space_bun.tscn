@@ -49,9 +49,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="SpaceBun" type="Node2D" unique_id=992281789]
-position = Vector2(454, 244)
-scale = Vector2(10.045, 10.045)
+[sub_resource type="CircleShape2D" id="CircleShape2D_6krd5"]
+
+[node name="SpaceBun" type="CharacterBody2D" unique_id=985647371]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1704425875]
 texture_filter = 1
@@ -59,3 +59,7 @@ sprite_frames = SubResource("SpriteFrames_aqboc")
 animation = &"South"
 autoplay = "South"
 frame_progress = 0.90485114
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1033168612]
+shape = SubResource("CircleShape2D_6krd5")

@@ -1,7 +1,7 @@
 # meta-name: New Action Type
-# meta-description: Template for creating a new action type that can be added to the action queues of Little Green and the Space Buns. This script should be extended to implement specific actions with their own logic and properties.
+# meta-description: Template for creating a new action type
 # meta-default: true
-
+# gdlint:ignore = class-name
 class_name _CLASS_
 extends Action
 

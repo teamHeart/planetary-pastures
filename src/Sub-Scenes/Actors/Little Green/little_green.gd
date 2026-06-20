@@ -1,6 +1,5 @@
 class_name LittleGreen
 extends CharacterBody2D
-"res://script_templates/Action/action.gd"
 
 @warning_ignore_start("unused_signal")
 @warning_ignore_start("unused_private_class_variable")
@@ -36,84 +35,81 @@ var _current_action: Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# TODO: Refactor this to be cleaner and more modular.
-	# Maybe have a separate function for setting up the state machine and its states?
-	# XXX
-	# BUG
-	# NOTICE
-	# REVIEW
-	# DEPRECATED
-	# [ ]
-	# [x]
-	"""
-	call_deferred("connect_to_plots")
-	## Sets Little Green's target location to the plot with plot_id from the request
-	get_tree().get_root().find_child("Garden", true, false).call_deferred(
-		"connect", "return_plot_details", func(_details: PlantDetails) -> void: pass
-	)
+	# TODO Refactor this to be cleaner and more modular.
+	# ? Maybe have a separate function for setting up the state machine and its states?
+	pass
+	# XXX Delete all this below
 
-	# Set up State Machine
-	state_machine.set_operator(self)
+		# 	call_deferred("connect_to_plots")
+		# 	## Sets Little Green's target location to the plot with plot_id from the request
+		# 	get_tree().get_root().find_child("Garden", true, false).call_deferred(
+		# 		"connect", "return_plot_details", func(_details: PlantDetails) -> void: pass
+		# 	)
 
-	# Set up states
+		# 	# Set up State Machine
+		# 	state_machine.set_operator(self)
 
-	var idle_state: StateMachine.State = StateMachine.State.new()
-	var planting_state: StateMachine.State = StateMachine.State.new()
-	var harvesting_state: StateMachine.State = StateMachine.State.new()
-	var unloading_state: StateMachine.State = StateMachine.State.new()
+		# 	# Set up states
 
-	#region Idle State
-	idle_state.set_enter(func() -> void: pass)
-	idle_state.set_process(
-		func(_delta: float) -> void:
-			if num_plants_holding() >= Parameters.get_little_green_carry_capacity():
-				state_machine.change_state(unloading_state)
-			elif not harvest_queue.is_empty():
-				state_machine.change_state(harvesting_state)
-			elif not plant_queue.is_empty():
-				state_machine.change_state(planting_state)
-			else:
-				# Idle behavior (i.e., do nothing or play idle animation)
-				pass
-	)
-	idle_state.set_exit(func() -> void: pass)
-	#endregion Idle State
+		# 	var idle_state: StateMachine.State = StateMachine.State.new()
+		# 	var planting_state: StateMachine.State = StateMachine.State.new()
+		# 	var harvesting_state: StateMachine.State = StateMachine.State.new()
+		# 	var unloading_state: StateMachine.State = StateMachine.State.new()
+
+		# 	#region Idle State
+		# 	idle_state.set_enter(func() -> void: pass)
+		# 	idle_state.set_process(
+		# 		func(_delta: float) -> void:
+		# 			if num_plants_holding() >= Parameters.get_little_green_carry_capacity():
+		# 				state_machine.change_state(unloading_state)
+		# 			elif not harvest_queue.is_empty():
+		# 				state_machine.change_state(harvesting_state)
+		# 			elif not plant_queue.is_empty():
+		# 				state_machine.change_state(planting_state)
+		# 			else:
+		# 				# Idle behavior (i.e., do nothing or play idle animation)
+		# 				pass
+		# 	)
+		# 	idle_state.set_exit(func() -> void: pass)
+		# 	#endregion Idle State
 
 
-	#region Planting State
-	planting_state.set_enter(func() -> void: pass)
-	planting_state.set_process(func(_delta: float) -> void: pass)
-	planting_state.set_exit(func() -> void: pass)
-	#endregion Planting State
+		# 	#region Planting State
+		# 	planting_state.set_enter(func() -> void: pass)
+		# 	planting_state.set_process(func(_delta: float) -> void: pass)
+		# 	planting_state.set_exit(func() -> void: pass)
+		# 	#endregion Planting State
 
 
-	#region Harvesting State
-	harvesting_state.set_enter(func() -> void: pass)
-	harvesting_state.set_process(func(_delta: float) -> void: pass)
-	harvesting_state.set_exit(func() -> void: pass)
-	#endregion
+		# 	#region Harvesting State
+		# 	harvesting_state.set_enter(func() -> void: pass)
+		# 	harvesting_state.set_process(func(_delta: float) -> void: pass)
+		# 	harvesting_state.set_exit(func() -> void: pass)
+		# 	#endregion
 
 
-	#region Unloading State
-	unloading_state.set_enter(func() -> void: pass)
-	unloading_state.set_process(func(_delta: float) -> void: pass)
-	unloading_state.set_exit(func() -> void: pass)
-	#endregion
+		# 	#region Unloading State
+		# 	unloading_state.set_enter(func() -> void: pass)
+		# 	unloading_state.set_process(func(_delta: float) -> void: pass)
+		# 	unloading_state.set_exit(func() -> void: pass)
+		# 	#endregion
 
-	state_machine.change_state(idle_state)
-"""
+		# 	state_machine.change_state(idle_state)
 
-# HACK: can prob remove this now that Game Manager is handling comms
-func connect_to_plots() -> void:
-	for plot in get_tree().get_root().find_child("Garden", true, false).get_children():
-		plot.connect("plant_grown", Callable(self, "_on_plant_grown"))
-		plot.connect("plant_harvested", Callable(self, "_on_plant_harvested"))
+
+#~ HACK: can prob remove this now that Game Manager is handling comms
+# func connect_to_plots() -> void:
+# 	for plot in get_tree().get_root().find_child("Garden", true, false).get_children():
+# 		plot.connect("plant_grown", Callable(self, "_on_plant_grown"))
+# 		plot.connect("plant_harvested", Callable(self, "_on_plant_harvested"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	state_machine._process(_delta)
 # HACK: refactor to use new Action types
+#? Do I want harvests to be processed immediately or in turn?
+#? i.e. should I insert them at the front or the back of the queue
 
 	if _current_action == {}:
 		if !harvest_queue.is_empty() and !harvest_queue_lock:
@@ -209,7 +205,7 @@ func process_current_action(_delta: float) -> void:
 func move_action(target_position: Vector2) -> void:
 	var direction: Vector2 = position.direction_to(target_position).normalized()
 	velocity = direction * Parameters.little_green_move_speed
-	if position.distance_to(target_position) < 5.0:
+	if position.distance_to(target_position) < 32.0:
 		velocity = Vector2.ZERO
 		_current_action = {}
 		sprite.play("idle")
@@ -228,7 +224,7 @@ func plant_on_plot(active_plot: GardenPlot, _delta: float) -> void:
 
 func water_plot(active_plot: GardenPlot, _delta: float) -> void:
 	_processing_timer += _delta
-	if _processing_timer >= 1.0 / Parameters.little_green_watering_speed_multiplier:
+	if _processing_timer >= -3.0:
 		active_plot.water()
 		_processing_timer = 0.0
 		_current_action = {}
@@ -236,7 +232,7 @@ func water_plot(active_plot: GardenPlot, _delta: float) -> void:
 
 func fertilize_plot(active_plot: GardenPlot, _delta: float) -> void:
 	_processing_timer += _delta
-	if _processing_timer >= 1.0 / Parameters.little_green_fertilizing_speed_multiplier:
+	if _processing_timer >= -3.0:
 		active_plot.fertilize()
 		_processing_timer = 0.0
 		_current_action = {}

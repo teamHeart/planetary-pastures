@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="PlantDetails" format=3 uid="uid://1b7x1hmql4y2"]
+
+[ext_resource type="Texture2D" uid="uid://c00qdytsarq01" path="res://src/Sub-Scenes/Plants/Plant Textures/Star_cluster_animated_001.png" id="1_0q14q"]
+[ext_resource type="Script" uid="uid://djg4rq2khjpyt" path="res://src/Sub-Scenes/Plants/util/plant_details.gd" id="1_30yov"]
+[ext_resource type="Texture2D" uid="uid://ky17hi47xo3n" path="res://src/Sub-Scenes/Plants/Plant Textures/Star_cluster_growth_stages_001.png" id="2_kpb30"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpb30"]
+atlas = ExtResource("1_0q14q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyw26"]
+atlas = ExtResource("1_0q14q")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro1if"]
+atlas = ExtResource("1_0q14q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3i2n"]
+atlas = ExtResource("1_0q14q")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hasi"]
+atlas = ExtResource("1_0q14q")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d4skb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpb30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyw26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro1if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3i2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hasi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_30yov")
+plant_type = 23
+plant_name = "Star Cluster"
+description = "A flower whose blooms cluster into a five-pointed shape. Why is it called a “star” when it’s not a space fireball?"
+plant_time = 2
+gestation_time = 120
+growth_time = 120
+harvest_time = 2
+yield_amount = 30
+growth_texture = ExtResource("2_kpb30")
+grown_animation = SubResource("SpriteFrames_d4skb")
+metadata/_custom_type_script = "uid://djg4rq2khjpyt"

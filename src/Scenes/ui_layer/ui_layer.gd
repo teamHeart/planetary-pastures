@@ -6,6 +6,7 @@ signal request_tool_qty(tool: Tool.Type)
 var current_tool: Tool = Tool.none()
 var last_seed_tool: Tool = null
 var tool_quantity: int = 0
+var current_wattage: int = 0
 
 #region Preload Tools
 
@@ -18,7 +19,7 @@ var tool_quantity: int = 0
 #endregion Nonvolatile Tools
 
 #region Seed Tools
-@onready var pulsar_puff_seeds_tool: Tool
+@onready var pulsar_puff_seeds_tool: Tool = preload("uid://bs2d5svqwskvw")
 @onready var rocarrot_seeds_tool: Tool
 @onready var saturose_seeds_tool: Tool
 @onready var white_dwarf_dropflower_seeds_tool: Tool
@@ -36,7 +37,7 @@ var tool_quantity: int = 0
 @onready var current_item: TextureRect = %CurrentItem
 @onready var tool_label: RichTextLabel = %ToolLabel
 @onready var tool_qty: RichTextLabel = %ToolQty
-
+@onready var watt_counter = %WattCounter
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -77,9 +78,7 @@ func _input(event: InputEvent) -> void:
 			KEY_R:
 				key = 4  # Seeds
 				requested_tool = (
-					last_seed_tool
-					if last_seed_tool != null
-					else heart_of_the_stars_seeds_tool
+					last_seed_tool if last_seed_tool != null else heart_of_the_stars_seeds_tool
 				)
 			KEY_1:
 				key = 5  # Pulsar Puff Seeds
@@ -139,3 +138,15 @@ func update_tool_quantity(quantity: int) -> void:
 	else:
 		tool_quantity = quantity
 		tool_qty.text = str(tool_quantity)
+
+func add_watts(amount: int) -> void:
+	current_wattage += amount
+	watt_counter.text = (
+		"[tornado radius="
+		+ str(max(min(3,log(log(current_wattage as float)/log(10.0))),0))
+		+ " freq="
+		+ str(max(min(20,log(current_wattage as float)/log(10.0)),0))
+		+ "]"
+		+ str(current_wattage)
+		+ " W[/tornado]"
+	)#  + "]str(current_wattage)

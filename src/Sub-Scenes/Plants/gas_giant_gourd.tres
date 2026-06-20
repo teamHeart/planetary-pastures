@@ -72,14 +72,14 @@ load_path = "res://.godot/imported/Gas_Giant_Gourd_growth_stages_001.png-97a8d80
 
 [resource]
 script = ExtResource("1_lsqye")
-plant_type = 2
+plant_type = 25
 plant_name = "Gas Giant Gourd"
-description = "the gas giant gourd floats on its stalk because it is filled with helium as well as edible flesh. Boing. Boing."
-plant_time = 2.0
-gestation_time = 5.0
-growth_time = 5.0
-harvest_time = 2.0
-yield_amount = 1
+description = "It is filled with lighter-than-air gases. Be careful to harvest it quickly before it floats away!"
+plant_time = 2
+gestation_time = 120
+growth_time = 240
+harvest_time = 2
+yield_amount = 45
 growth_texture = SubResource("CompressedTexture2D_n7hol")
 grown_animation = SubResource("SpriteFrames_q0bqd")
 metadata/_custom_type_script = "uid://djg4rq2khjpyt"

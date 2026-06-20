@@ -1,22 +1,10 @@
 [gd_scene format=3 uid="uid://cnru6lpj4pgjs"]
 
 [ext_resource type="Script" uid="uid://bwpbln1rpgsl6" path="res://src/Sub-Scenes/Plants/util/plant.gd" id="1_gabcg"]
-[ext_resource type="Texture2D" uid="uid://cgkjvsw2f8tsg" path="res://src/Sub-Scenes/Plants/Plant Textures/Basket_Stinkhorn_growth_stages_001.png" id="2_24rq8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i55hd"]
-atlas = ExtResource("2_24rq8")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="SpriteFrames" id="SpriteFrames_h6koh"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_0rwbe"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i55hd")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a0s8i"]
 
 [sub_resource type="Animation" id="Animation_aiu54"]
 length = 0.001
@@ -59,17 +47,16 @@ _data = {
 [node name="Plant" type="Node2D" unique_id=88534449]
 texture_filter = 1
 script = ExtResource("1_gabcg")
-plant_type = 1
 
 [node name="FullGrown" type="AnimatedSprite2D" parent="." unique_id=2014432310]
 unique_name_in_owner = true
-sprite_frames = SubResource("SpriteFrames_0rwbe")
+sprite_frames = SubResource("SpriteFrames_h6koh")
 offset = Vector2(0, -16)
 
 [node name="Growing" type="Sprite2D" parent="." unique_id=1431125954]
 unique_name_in_owner = true
 position = Vector2(0, -16)
-texture = ExtResource("2_24rq8")
+texture = SubResource("CompressedTexture2D_a0s8i")
 hframes = 3
 
 [node name="Sway" type="AnimationPlayer" parent="." unique_id=1641385955]

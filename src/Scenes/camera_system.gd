@@ -4,6 +4,8 @@ extends Node2D
 @export var def_zoom: float = 2.0
 @export var max_zoom: float = 8.0
 
+var move: bool = false
+
 @onready var _camera: Camera2D = $Camera2D
 
 
@@ -40,11 +42,15 @@ func _input(event: InputEvent) -> void:
 
 	#zoom in on mouse wheel up, zoom out on mouse wheel down
 	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_MIDDLE and event.pressed:
+			move = true
+		elif event.button_index == MOUSE_BUTTON_MIDDLE and !event.pressed:
+			move = false
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			zoom_in()
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 			zoom_out()
-	elif event is InputEventKey and event.pressed:
+	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_F11:  # '+' key
 			DisplayServer.window_set_mode(
 				(
@@ -54,6 +60,8 @@ func _input(event: InputEvent) -> void:
 				)
 			)
 			# OS.window_fullscreen = not OS.window_fullscreen
+	if event is InputEventMouseMotion and move:
+		position -= event.get_relative()/_camera.zoom
 
 
 func zoom_in() -> void:

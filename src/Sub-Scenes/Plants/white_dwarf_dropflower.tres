@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="PlantDetails" format=3 uid="uid://cxe1cp7br84i"]
+
+[ext_resource type="Script" uid="uid://djg4rq2khjpyt" path="res://src/Sub-Scenes/Plants/util/plant_details.gd" id="1_0thtf"]
+[ext_resource type="Texture2D" uid="uid://d2olkcf0cakos" path="res://src/Sub-Scenes/Plants/Plant Textures/White_Dwarf_drop_flower_idk_growth_stages_001.png" id="1_5bwgj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbu7r"]
+atlas = ExtResource("1_5bwgj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k66ob"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbu7r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_0thtf")
+plant_type = 18
+plant_name = "White Dwarf Dropflower"
+description = "Its bloom is heralded with a piercing white light. The residual glow makes it a popular flower in the galaxy."
+plant_time = 2
+gestation_time = 30
+growth_time = 60
+harvest_time = 2
+yield_amount = 15
+growth_texture = ExtResource("1_5bwgj")
+grown_animation = SubResource("SpriteFrames_k66ob")
+metadata/_custom_type_script = "uid://djg4rq2khjpyt"

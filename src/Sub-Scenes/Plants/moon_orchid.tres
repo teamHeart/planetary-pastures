@@ -20,14 +20,14 @@ animations = [{
 
 [resource]
 script = ExtResource("2_3j14k")
-plant_type = 4
+plant_type = 19
 plant_name = "Moon Orchid"
-description = "It a thingy"
-plant_time = 4.0
-gestation_time = 4.0
-growth_time = 4.0
-harvest_time = 4.0
-yield_amount = 4
+description = "Moon Orchid, whoa-oh-oh-oh! You’ve got the power to grow this plant!"
+plant_time = 2
+gestation_time = 30
+growth_time = 65
+harvest_time = 2
+yield_amount = 18
 growth_texture = ExtResource("1_c540a")
 grown_animation = SubResource("SpriteFrames_ectya")
 metadata/_custom_type_script = "uid://djg4rq2khjpyt"

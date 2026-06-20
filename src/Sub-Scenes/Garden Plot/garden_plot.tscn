@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://bfxxaads1m627" path="res://src/Sub-Scenes/Garden Plot/gargen_plot.gd" id="1_p1jro"]
 [ext_resource type="Texture2D" uid="uid://cwgs41w8yaq4y" path="res://src/Sub-Scenes/Garden Plot/water_layer.png" id="2_p1jro"]
 [ext_resource type="PackedScene" uid="uid://cnru6lpj4pgjs" path="res://src/Sub-Scenes/Plants/util/plant.tscn" id="2_vh5dp"]
-[ext_resource type="Texture2D" uid="uid://ce7vn7602sug1" path="res://src/Sub-Scenes/Garden Plot/fertilizer_layer.png" id="3_q1mb2"]
+[ext_resource type="Texture2D" uid="uid://bas83k03s0577" path="res://src/Sub-Scenes/Garden Plot/fertilizer_layer.png" id="3_q1mb2"]
+[ext_resource type="Texture2D" uid="uid://c3ln27h8wyiro" path="res://Images/water_anim.png" id="5_w4mao"]
+[ext_resource type="Texture2D" uid="uid://dqxr0ddmxujpb" path="res://Images/fertilizer_anim.png" id="6_5681i"]
 
 [sub_resource type="Gradient" id="Gradient_e7m1a"]
 offsets = PackedFloat32Array(0, 0.36875, 0.6875, 1)
@@ -11,6 +13,169 @@ colors = PackedColorArray(0.13333334, 0.12941177, 0.56078434, 1, 0, 1, 1, 1, 0, 
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aiu54"]
 size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iwo1"]
+atlas = ExtResource("5_w4mao")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibivk"]
+atlas = ExtResource("5_w4mao")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bphsu"]
+atlas = ExtResource("5_w4mao")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjn3o"]
+atlas = ExtResource("5_w4mao")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lum2"]
+atlas = ExtResource("5_w4mao")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7x7o"]
+atlas = ExtResource("5_w4mao")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vts3l"]
+atlas = ExtResource("5_w4mao")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn7wk"]
+atlas = ExtResource("5_w4mao")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvcrq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5iwo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibivk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bphsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjn3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lum2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7x7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vts3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn7wk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x241"]
+atlas = ExtResource("6_5681i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykgdu"]
+atlas = ExtResource("6_5681i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45xbi"]
+atlas = ExtResource("6_5681i")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlj27"]
+atlas = ExtResource("6_5681i")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_578oi"]
+atlas = ExtResource("6_5681i")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kg4w"]
+atlas = ExtResource("6_5681i")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj887"]
+atlas = ExtResource("6_5681i")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hot8x"]
+atlas = ExtResource("6_5681i")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hn23v"]
+atlas = ExtResource("6_5681i")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpq1l"]
+atlas = ExtResource("6_5681i")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja7ws"]
+atlas = ExtResource("6_5681i")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24xl0"]
+atlas = ExtResource("6_5681i")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idpn1"]
+atlas = ExtResource("6_5681i")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hnp2d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x241")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykgdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45xbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlj27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_578oi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kg4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj887")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hot8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hn23v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpq1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja7ws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24xl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idpn1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vh5dp"]
 bg_color = Color(0.6, 0.6, 0.6, 0.49411765)
@@ -120,7 +285,16 @@ texture = ExtResource("3_q1mb2")
 
 [node name="Plant" parent="." unique_id=88534449 instance=ExtResource("2_vh5dp")]
 position = Vector2(0, 8)
-plant_type = 0
+
+[node name="WaterAnim" type="AnimatedSprite2D" parent="." unique_id=653171097]
+unique_name_in_owner = true
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_wvcrq")
+
+[node name="FertilizerAnim" type="AnimatedSprite2D" parent="." unique_id=1018028202]
+unique_name_in_owner = true
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_hnp2d")
 
 [node name="Control" type="Control" parent="." unique_id=201275800]
 texture_filter = 1

@@ -126,14 +126,14 @@ animations = [{
 
 [resource]
 script = ExtResource("3_jg56e")
-plant_type = 3
+plant_type = 26
 plant_name = "Heart of the Stars"
-description = "It's the eye of the tiger! Bee-ner-neeee-ner! Bee-ner-nee-nee-ner!"
-plant_time = 2.0
-gestation_time = 10.0
-growth_time = 10.0
-harvest_time = 5.0
-yield_amount = 5
+description = "Its drooping buds hide a beautiful bloom. Only a caring gardener can draw it out."
+plant_time = 2
+gestation_time = 120
+growth_time = 360
+harvest_time = 2
+yield_amount = 50
 growth_texture = ExtResource("2_4bbsd")
 grown_animation = SubResource("SpriteFrames_6jh25")
 metadata/_custom_type_script = "uid://djg4rq2khjpyt"
