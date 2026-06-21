@@ -1,6 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 .nomedia
+Godot-bin/
 
 # Godot-specific ignores
 .import/
