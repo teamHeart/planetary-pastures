@@ -3,18 +3,18 @@ extends Resource
 
 enum PlantType {
 	NONE = 0,
-	PULSAR_PUFF = 5+10,
-	ROCARROT = 6+10,
-	SATUROSE = 7+10,
-	WHITE_DWARF_DROPFLOWER = 8+10,
-	MOON_ORCHID = 9+10,
-	NURSERY_MELON = 10+10,
-	STELLAR_CABBAGE = 11+10,
-	MOONBERRY_BUSH = 12+10,
-	STAR_CLUSTER = 13+10,
-	BASKET_STINKHORN = 14+10,
-	GAS_GIANT_GOURD = 15+10,
-	HEART_OF_THE_STARS = 16+10,
+	PULSAR_PUFF = 5 + 10,
+	ROCARROT = 6 + 10,
+	SATUROSE = 7 + 10,
+	WHITE_DWARF_DROPFLOWER = 8 + 10,
+	MOON_ORCHID = 9 + 10,
+	NURSERY_MELON = 10 + 10,
+	STELLAR_CABBAGE = 11 + 10,
+	MOONBERRY_BUSH = 12 + 10,
+	STAR_CLUSTER = 13 + 10,
+	BASKET_STINKHORN = 14 + 10,
+	GAS_GIANT_GOURD = 15 + 10,
+	HEART_OF_THE_STARS = 16 + 10,
 }
 
 const PLANT_TYPE_NAMES = {
@@ -50,7 +50,6 @@ const PLANT_TYPE_NAMES = {
 
 ## the amount of plant yield after harvesting [code]int[/code]
 @export var yield_amount: int = 0
-
 
 @export var growth_texture: CompressedTexture2D = null
 @export var grown_animation: SpriteFrames = null

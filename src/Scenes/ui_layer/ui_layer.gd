@@ -39,6 +39,7 @@ var current_wattage: int = 0
 @onready var tool_qty: RichTextLabel = %ToolQty
 @onready var watt_counter = %WattCounter
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -139,14 +140,15 @@ func update_tool_quantity(quantity: int) -> void:
 		tool_quantity = quantity
 		tool_qty.text = str(tool_quantity)
 
+
 func add_watts(amount: int) -> void:
 	current_wattage += amount
 	watt_counter.text = (
 		"[tornado radius="
-		+ str(max(min(3,log(log(current_wattage as float)/log(10.0))),0))
+		+ str(max(min(3, log(log(current_wattage as float) / log(10.0))), 0))
 		+ " freq="
-		+ str(max(min(20,log(current_wattage as float)/log(10.0)),0))
+		+ str(max(min(20, log(current_wattage as float) / log(10.0)), 0))
 		+ "]"
 		+ str(current_wattage)
 		+ " W[/tornado]"
-	)#  + "]str(current_wattage)
+	)  #  + "]str(current_wattage)

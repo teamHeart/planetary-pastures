@@ -6,6 +6,7 @@ extends Action
 var target_plot: GardenPlot = null
 var planting_timer: Timer = Timer.new()
 
+
 func _init(_object: Node, _target_plot: GardenPlot) -> void:
 	super._init(_object)
 	target_plot = _target_plot
@@ -14,9 +15,11 @@ func _init(_object: Node, _target_plot: GardenPlot) -> void:
 	planting_timer.connect("timeout", Callable(self, "_on_planting_timer_timeout"))
 	_object.add_child(planting_timer)
 
+
 func execute(_delta: float) -> void:
 	if planting_timer.is_stopped():
 		planting_timer.start()
+
 
 func _on_planting_timer_timeout() -> void:
 	target_plot.plant(target_plot.current_plant.plant_type)

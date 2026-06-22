@@ -61,7 +61,7 @@ func _input(event: InputEvent) -> void:
 			)
 			# OS.window_fullscreen = not OS.window_fullscreen
 	if event is InputEventMouseMotion and move:
-		position -= event.get_relative()/_camera.zoom
+		position -= event.get_relative() / _camera.zoom
 
 
 func zoom_in() -> void:

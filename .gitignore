@@ -2,6 +2,7 @@
 .godot/
 .nomedia
 Godot-bin/
+godot
 
 # Godot-specific ignores
 .import/

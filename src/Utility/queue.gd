@@ -6,49 +6,61 @@ extends Object
 
 var _items: Array = []
 
+
 func new():
 	_items = []
+
 
 func clear():
 	_items.clear()
 
+
 func queue_free():
 	_items.clear()
 
-func peek()->Variant:
+
+func peek() -> Variant:
 	if !is_empty():
 		return _items[0]
 	return null
 
-func peek_all()->Array:
+
+func peek_all() -> Array:
 	return _items.duplicate()
+
 
 func push(item):
 	_items.append(item)
 
+
 func push_front(item):
 	_items.insert(0, item)
 
-func pop()->Variant:
+
+func pop() -> Variant:
 	if !is_empty():
 		return _items.pop_front()
 	return null
 
-func is_empty()->bool:
+
+func is_empty() -> bool:
 	return length() == 0
 
-func length()->int:
+
+func length() -> int:
 	return _items.size()
 
-func reverse()->Queue:
+
+func reverse() -> Queue:
 	var reversed_queue = Queue.new()
 	for i in range(length() - 1, -1, -1):
 		reversed_queue.push(_items[i])
 	return reversed_queue
 
-func _to_string()->String:
+
+func _to_string() -> String:
 	super.to_string()  # Call the base class's to_string() method
-	var queue_string : String = "Queue: ["
+	var queue_string: String = "Queue: ["
 	for i in range(length()):
 		queue_string += str(_items[i])
 		if i < length() - 1:

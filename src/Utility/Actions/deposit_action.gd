@@ -12,4 +12,3 @@ func _init(_object: Node, _args: Dictionary) -> void:
 
 func execute(_delta: float) -> void:
 	pass  # Implement the logic to execute the action based on its type and arguments
-

@@ -40,61 +40,58 @@ func _ready() -> void:
 	pass
 	# XXX Delete all this below
 
-		# 	call_deferred("connect_to_plots")
-		# 	## Sets Little Green's target location to the plot with plot_id from the request
-		# 	get_tree().get_root().find_child("Garden", true, false).call_deferred(
-		# 		"connect", "return_plot_details", func(_details: PlantDetails) -> void: pass
-		# 	)
+	# 	call_deferred("connect_to_plots")
+	# 	## Sets Little Green's target location to the plot with plot_id from the request
+	# 	get_tree().get_root().find_child("Garden", true, false).call_deferred(
+	# 		"connect", "return_plot_details", func(_details: PlantDetails) -> void: pass
+	# 	)
 
-		# 	# Set up State Machine
-		# 	state_machine.set_operator(self)
+	# 	# Set up State Machine
+	# 	state_machine.set_operator(self)
 
-		# 	# Set up states
+	# 	# Set up states
 
-		# 	var idle_state: StateMachine.State = StateMachine.State.new()
-		# 	var planting_state: StateMachine.State = StateMachine.State.new()
-		# 	var harvesting_state: StateMachine.State = StateMachine.State.new()
-		# 	var unloading_state: StateMachine.State = StateMachine.State.new()
+	# 	var idle_state: StateMachine.State = StateMachine.State.new()
+	# 	var planting_state: StateMachine.State = StateMachine.State.new()
+	# 	var harvesting_state: StateMachine.State = StateMachine.State.new()
+	# 	var unloading_state: StateMachine.State = StateMachine.State.new()
 
-		# 	#region Idle State
-		# 	idle_state.set_enter(func() -> void: pass)
-		# 	idle_state.set_process(
-		# 		func(_delta: float) -> void:
-		# 			if num_plants_holding() >= Parameters.get_little_green_carry_capacity():
-		# 				state_machine.change_state(unloading_state)
-		# 			elif not harvest_queue.is_empty():
-		# 				state_machine.change_state(harvesting_state)
-		# 			elif not plant_queue.is_empty():
-		# 				state_machine.change_state(planting_state)
-		# 			else:
-		# 				# Idle behavior (i.e., do nothing or play idle animation)
-		# 				pass
-		# 	)
-		# 	idle_state.set_exit(func() -> void: pass)
-		# 	#endregion Idle State
+	# 	#region Idle State
+	# 	idle_state.set_enter(func() -> void: pass)
+	# 	idle_state.set_process(
+	# 		func(_delta: float) -> void:
+	# 			if num_plants_holding() >= Parameters.get_little_green_carry_capacity():
+	# 				state_machine.change_state(unloading_state)
+	# 			elif not harvest_queue.is_empty():
+	# 				state_machine.change_state(harvesting_state)
+	# 			elif not plant_queue.is_empty():
+	# 				state_machine.change_state(planting_state)
+	# 			else:
+	# 				# Idle behavior (i.e., do nothing or play idle animation)
+	# 				pass
+	# 	)
+	# 	idle_state.set_exit(func() -> void: pass)
+	# 	#endregion Idle State
 
+	# 	#region Planting State
+	# 	planting_state.set_enter(func() -> void: pass)
+	# 	planting_state.set_process(func(_delta: float) -> void: pass)
+	# 	planting_state.set_exit(func() -> void: pass)
+	# 	#endregion Planting State
 
-		# 	#region Planting State
-		# 	planting_state.set_enter(func() -> void: pass)
-		# 	planting_state.set_process(func(_delta: float) -> void: pass)
-		# 	planting_state.set_exit(func() -> void: pass)
-		# 	#endregion Planting State
+	# 	#region Harvesting State
+	# 	harvesting_state.set_enter(func() -> void: pass)
+	# 	harvesting_state.set_process(func(_delta: float) -> void: pass)
+	# 	harvesting_state.set_exit(func() -> void: pass)
+	# 	#endregion
 
+	# 	#region Unloading State
+	# 	unloading_state.set_enter(func() -> void: pass)
+	# 	unloading_state.set_process(func(_delta: float) -> void: pass)
+	# 	unloading_state.set_exit(func() -> void: pass)
+	# 	#endregion
 
-		# 	#region Harvesting State
-		# 	harvesting_state.set_enter(func() -> void: pass)
-		# 	harvesting_state.set_process(func(_delta: float) -> void: pass)
-		# 	harvesting_state.set_exit(func() -> void: pass)
-		# 	#endregion
-
-
-		# 	#region Unloading State
-		# 	unloading_state.set_enter(func() -> void: pass)
-		# 	unloading_state.set_process(func(_delta: float) -> void: pass)
-		# 	unloading_state.set_exit(func() -> void: pass)
-		# 	#endregion
-
-		# 	state_machine.change_state(idle_state)
+	# 	state_machine.change_state(idle_state)
 
 
 #~ HACK: can prob remove this now that Game Manager is handling comms

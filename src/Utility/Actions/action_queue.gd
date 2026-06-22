@@ -12,8 +12,9 @@ func _init(_object: Node, _args: Array[Action] = []) -> void:
 	if _args.size() > 0:
 		queue._items = _args.duplicate()
 
+
 func execute(_delta: float) -> void:
-	if current_action==null and queue.is_empty():
+	if current_action == null and queue.is_empty():
 		action_completed.emit()
 		return
 	if current_action == null:

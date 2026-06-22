@@ -157,5 +157,6 @@ func _on_plant_grown(plot: GardenPlot) -> void:
 	)
 	little_green.harvest_queue.push(plot)
 
+
 func _on_plant_harvested(plant: PlantDetails) -> void:
 	ui_layer.add_watts(plant.yield_amount)

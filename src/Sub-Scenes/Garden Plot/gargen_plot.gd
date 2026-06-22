@@ -63,21 +63,25 @@ func _ready() -> void:
 	fertilizer_layer.visible = false
 	add_child(watering_timer)
 	watering_timer.one_shot = true
-	watering_timer.connect("timeout", func() -> void:
-		is_watered = true
-		emit_signal("plant_watered", self)
-		water_anim.stop()
-		water_anim.visible = false
+	watering_timer.connect(
+		"timeout",
+		func() -> void:
+			is_watered = true
+			emit_signal("plant_watered", self)
+			water_anim.stop()
+			water_anim.visible = false
 	)
 	water_anim.stop()
 	water_anim.visible = false
 	add_child(fertilizing_timer)
 	fertilizing_timer.one_shot = true
-	fertilizing_timer.connect("timeout", func() -> void:
-		is_fertilized = true
-		emit_signal("plant_fertilized", self)
-		fertilizer_anim.stop()
-		fertilizer_anim.visible = false
+	fertilizing_timer.connect(
+		"timeout",
+		func() -> void:
+			is_fertilized = true
+			emit_signal("plant_fertilized", self)
+			fertilizer_anim.stop()
+			fertilizer_anim.visible = false
 	)
 	fertilizer_anim.stop()
 	fertilizer_anim.visible = false
@@ -188,6 +192,7 @@ func fertilize() -> void:
 	fertilizer_anim.speed_scale = 1 / fertilizing_timer.wait_time
 	fertilizer_anim.play("default")
 	fertilizing_timer.start()
+
 
 func water() -> void:
 	watering_timer.wait_time = 1.0 - Parameters.little_green_watering_speed_multiplier

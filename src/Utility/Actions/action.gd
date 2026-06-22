@@ -18,5 +18,6 @@ func _init(_object: Node) -> void:
 func execute(_delta: float) -> void:
 	pass
 
+
 func _on_completed() -> void:
 	free()

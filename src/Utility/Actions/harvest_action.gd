@@ -6,6 +6,7 @@ extends Action
 var target_plot: GardenPlot = null
 var harvest_timer: Timer = Timer.new()
 
+
 func _init(_object: Node, _target_plot: GardenPlot) -> void:
 	super._init(_object)
 	target_plot = _target_plot
@@ -14,9 +15,11 @@ func _init(_object: Node, _target_plot: GardenPlot) -> void:
 	harvest_timer.connect("timeout", Callable(self, "_on_harvest_timer_timeout"))
 	_object.add_child(harvest_timer)
 
+
 func execute(_delta: float) -> void:
 	if harvest_timer.is_stopped():
 		harvest_timer.start()
+
 
 func _on_harvest_timer_timeout() -> void:
 	target_plot.harvest()
