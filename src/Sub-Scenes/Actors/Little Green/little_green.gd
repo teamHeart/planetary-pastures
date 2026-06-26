@@ -1,5 +1,5 @@
 class_name LittleGreen
-extends CharacterBody2D
+extends Actor
 
 @warning_ignore_start("unused_signal")
 @warning_ignore_start("unused_private_class_variable")
@@ -20,7 +20,6 @@ var plants_holding: Queue = Queue.new()
 var plant_queue: Queue = Queue.new()
 var harvest_queue: Queue = Queue.new()
 var harvest_queue_lock: bool = false
-var state_machine: StateMachine = StateMachine.new()
 
 var _target_plot_id: int = -1
 
@@ -29,8 +28,6 @@ var _processing_timer: float = 0.0
 
 var _action_queue: Queue = Queue.new()
 var _current_action: Dictionary = {}
-
-@onready var sprite: AnimatedSprite2D = %Sprite
 
 
 # Called when the node enters the scene tree for the first time.
@@ -103,7 +100,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	state_machine._process(_delta)
+	super._process(_delta)
+	# NOTE that this is a temporary implementation of the state machine and action queue processing.
+	# state_machine._process(_delta)
 # HACK: refactor to use new Action types
 #? Do I want harvests to be processed immediately or in turn?
 #? i.e. should I insert them at the front or the back of the queue
@@ -205,10 +204,11 @@ func move_action(target_position: Vector2) -> void:
 	if position.distance_to(target_position) < 32.0:
 		velocity = Vector2.ZERO
 		_current_action = {}
-		sprite.play("idle")
+		sprite.play("Idle" + animation_direction)
 		return
 	move_and_slide()
-	sprite.play("default")
+	sprite.play("Walk" + animation_direction)
+	print(sprite.animation)
 
 
 func plant_on_plot(active_plot: GardenPlot, _delta: float) -> void:

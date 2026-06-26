@@ -174,9 +174,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_40gtr"]
 radius = 16.03122
 
-[node name="Node2D" type="CharacterBody2D" unique_id=1476048170]
+[node name="Node2D" type="CharacterBody2D" unique_id=568834011]
 motion_mode = 1
 script = ExtResource("1_t803k")
+metadata/_custom_type_script = "uid://2xhnujajnu48"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=633297189]
 unique_name_in_owner = true

@@ -12,6 +12,8 @@ var state_machine: StateMachine = StateMachine.new()
 ## The queue of [param Actions] that the actor will perform
 var action_queue: Queue = Queue.new()
 
+var animation_direction: String = "South"
+
 #region IDLE state
 var idle_enter: Callable = func() -> void:
 	# This function is called when the IDLE state is entered.
@@ -45,6 +47,7 @@ var working_exit: Callable = func() -> void:
 	pass
 #endregion WORKING state
 
+@onready var sprite: AnimatedSprite2D = %Sprite
 
 func _ready() -> void:
 	# set self as the operator of the state machine
@@ -65,20 +68,23 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	var dots: Array = [
-		velocity.normalized().dot(Vector2(1, -1).normalized()),
-		velocity.normalized().dot(Vector2(-1, -1).normalized())
-	]
-	match dots:
-		_ when dots[0] >= 0 and dots[1] >= 0:
-			# moving north
-			pass
-		_ when dots[0] >= 0 and dots[1] <= 0:
-			# east
-			pass
-		_ when dots[0] <= 0 and dots[1] >= 0:
-			# west
-			pass
-		_ when dots[0] <= 0 and dots[1] <= 0:
-			# south
-			pass
+	if velocity != Vector2.ZERO:
+		var dots: Array = [
+			min(ceilf(velocity.normalized().dot(Vector2(1, -1).normalized())), 1),
+			max(ceilf(velocity.normalized().dot(Vector2(-1, -1).normalized())), 0)
+		]
+		print(dots)
+		match dots:
+			[1.0, 1.0]:
+				# moving north
+				animation_direction = "North"
+			[1.0, 0.0]:
+				# east
+				animation_direction = "East"
+			[0.0, 1.0]:
+				# west
+				animation_direction = "West"
+			[0.0, 0.0]:
+				# south
+				animation_direction = "South"
+		print(animation_direction)
