@@ -11,6 +11,10 @@ An incremental farming game about an alien trying to get off a planet by growing
 | * [Controls](#Controls) |
 | * [Ship Screen](#Shop-Screen) |
 
+| Notes & Docs |
+|--------------|
+| [Main Doc](https://docs.google.com/document/d/10xU8IzTXMk5uPm9_B0GoilKRkGK5v7R3zeoIvpp92_I/edit?usp=sharing) |
+
 ## Concept
 
 Little Green has crash landed on an uninhabited, yet surprisingly fertile, planet. Out of energy, Little Green's ship can not execute its self-repairs. As luck would have it, the local flora is perfect for converting into exactly the energy the ship needs to repair itself. Help Little Green cultivate the local flora; unlock, upgrade, and improve various facilities to hasten cultivation; and get Little Green home!
