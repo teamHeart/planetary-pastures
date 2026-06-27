@@ -14,6 +14,7 @@ An incremental farming game about an alien trying to get off a planet by growing
 | Notes & Docs |
 |--------------|
 | [Main Doc](https://docs.google.com/document/d/10xU8IzTXMk5uPm9_B0GoilKRkGK5v7R3zeoIvpp92_I/edit?usp=sharing) |
+| [More Doc](https://docs.google.com/document/d/1rd0K9Bei7vnL77onUQ3IUcJTE8KV39ZpZ5M-8W2ABGs/edit?usp=sharing)
 
 ## Concept
 
