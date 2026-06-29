@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cl7ypr7v64bjc"]
+
+[ext_resource type="Script" uid="uid://c1m1hoiqw728k" path="res://src/Sub-Scenes/Trees/tree.gd" id="1_rxe7j"]
+[ext_resource type="Texture2D" uid="uid://cljernjxirna8" path="res://src/Sub-Scenes/Trees/Trees.png" id="2_ly70y"]
+
+[node name="Tree" type="Node2D" unique_id=135539759]
+script = ExtResource("1_rxe7j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1792274452]
+texture = ExtResource("2_ly70y")
+offset = Vector2(16, -56)
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 112)
