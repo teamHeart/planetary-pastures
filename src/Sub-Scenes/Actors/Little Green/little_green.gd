@@ -107,6 +107,7 @@ func _process(_delta: float) -> void:
 #? Do I want harvests to be processed immediately or in turn?
 #? i.e. should I insert them at the front or the back of the queue
 
+#region Action Queue Processing
 	if _current_action == {}:
 		if !harvest_queue.is_empty() and !harvest_queue_lock:
 			var active_plot: GardenPlot = harvest_queue.pop()
@@ -241,3 +242,5 @@ func harvest_from_plot(active_plot: GardenPlot, _delta: float) -> void:
 		active_plot.harvest()
 		_processing_timer = 0.0
 		_current_action = {}
+
+#endregion Action Queue Processing
