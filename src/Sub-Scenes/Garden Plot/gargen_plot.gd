@@ -17,6 +17,91 @@ var growth_percent: float = 0.0
 
 var plot_id: int = 0
 
+#region State Machine setup
+var state_machine: StateMachine = StateMachine.new()
+
+#region Empty State
+var empty_state: StateMachine.State = StateMachine.State.new()
+var empty_enter: Callable = (func() -> void:
+	# This function is called when the EMPTY state is entered.
+	# You can add any initialization code for the EMPTY state here.
+	pass
+)
+var empty_process: Callable = (func(_delta: float) -> void:
+	# This function is called every frame while in the EMPTY state.
+	# You can add any code that should run continuously in the EMPTY state here.
+	pass
+)
+var empty_exit: Callable = (func() -> void:
+	# This function is called when the EMPTY state is exited.
+	# You can add any cleanup code for the EMPTY state here.
+	pass
+)
+state_machine.add_state("EMPTY", empty_state)
+#endregion Empty State
+
+#region Planted State
+var planted_state: StateMachine.State = StateMachine.State.new()
+planted_state.set_enter(func() -> void:
+	# This function is called when the PLANTED state is entered.
+	# You can add any initialization code for the PLANTED state here.
+	pass
+)
+planted_state.set_process(func(_delta: float) -> void:
+	# This function is called every frame while in the PLANTED state.
+	# You can add any code that should run continuously in the PLANTED state here.
+	pass
+)
+planted_state.set_exit(func() -> void:
+	# This function is called when the PLANTED state is exited.
+	# You can add any cleanup code for the PLANTED state here.
+	pass
+)
+state_machine.add_state("PLANTED", planted_state)
+#endregion Planted State
+
+#region Growing State
+var growing_state: StateMachine.State = StateMachine.State.new()
+growing_state.set_enter(func() -> void:
+	# This function is called when the GROWING state is entered.
+	# You can add any initialization code for the GROWING state here.
+	pass
+)
+growing_state.set_process(func(_delta: float) -> void:
+	# This function is called every frame while in the GROWING state.
+	# You can add any code that should run continuously in the GROWING state here.
+	pass
+)
+growing_state.set_exit(func() -> void:
+	# This function is called when the GROWING state is exited.
+	# You can add any cleanup code for the GROWING state here.
+	pass
+)
+state_machine.add_state("GROWING", growing_state)
+#endregion Growing State
+ 
+#region Grown State
+var grown_state: StateMachine.State = StateMachine.State.new()
+grown_state.set_enter(func() -> void:
+	# This function is called when the GROWN state is entered.
+	# You can add any initialization code for the GROWN state here.
+	pass
+)
+grown_state.set_process(func(_delta: float) -> void:
+	# This function is called every frame while in the GROWN state.
+	# You can add any code that should run continuously in the GROWN state here.
+	pass
+)
+grown_state.set_exit(func() -> void:
+	# This function is called when the GROWN state is exited.
+	# You can add any cleanup code for the GROWN state here.
+	pass
+)
+state_machine.add_state("GROWN", grown_state)
+#endregion Grown State
+
+#endregion State Machine setup
+
 var is_planted: bool = false
 var is_watered: bool = false
 var watering_timer: Timer = Timer.new()

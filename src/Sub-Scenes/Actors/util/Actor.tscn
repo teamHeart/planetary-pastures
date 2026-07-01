@@ -22,3 +22,6 @@ shape = SubResource("CircleShape2D_xfc1m")
 [node name="ClickShape" type="CollisionShape2D" parent="." unique_id=1010178936]
 shape = SubResource("CircleShape2D_xfc1m")
 unique_name_in_owner = true
+
+[node name="Emote" type="AnimatedSprite2D" parent="." unique_id=1551879053]
+unique_name_in_owner = true

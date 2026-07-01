@@ -1,7 +1,7 @@
-class_name Actor
+@abstract class_name Actor
 extends CharacterBody2D
 
-## This class represents an actor in the game.
+## This [u][i][b]abstract[/b][/i][/u] class represents an actor in the game.[br]
 ## It uses a state machine to manage its behavior and an action queue to manage its actions.
 
 ## The state machine allows the actor to switch between different states
@@ -73,7 +73,7 @@ func _process(_delta: float) -> void:
 			min(ceilf(velocity.normalized().dot(Vector2(1, -1).normalized())), 1),
 			max(ceilf(velocity.normalized().dot(Vector2(-1, -1).normalized())), 0)
 		]
-		print(dots)
+		# print(dots)
 		match dots:
 			[1.0, 1.0]:
 				# moving north
@@ -87,4 +87,4 @@ func _process(_delta: float) -> void:
 			[0.0, 0.0]:
 				# south
 				animation_direction = "South"
-		print(animation_direction)
+		# print(animation_direction)
