@@ -62,6 +62,11 @@ var _plant_type: PlantDetails.PlantType = plant_type
 @onready var grown_sprite: AnimatedSprite2D = $FullGrown
 @onready var sway: AnimationPlayer = $Sway
 
+func plant()->void:
+	_on_planted()
+
+func harvest()->void:
+	_on_harvested()
 
 func _process(_delta: float) -> void:
 	if _dirty:

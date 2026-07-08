@@ -21,83 +21,86 @@ var plot_id: int = 0
 var state_machine: StateMachine = StateMachine.new()
 
 #region Empty State
+## State for when the plot is empty and ready for planting
 var empty_state: StateMachine.State = StateMachine.State.new()
-var empty_enter: Callable = (func() -> void:
-	# This function is called when the EMPTY state is entered.
-	# You can add any initialization code for the EMPTY state here.
+## This function is called when the EMPTY state is entered.
+var empty_enter: Callable = func() -> void:
+	# Clear out all the stuff and things
+	is_planted = false
+	is_watered = false
+	is_fertilized = false
+	is_grown = false
+	current_plant.visible = false
+
+## This function is called every frame while in the EMPTY state.
+var empty_process: Callable = func(_delta: float) -> void:
+	# Do nothing
 	pass
-)
-var empty_process: Callable = (func(_delta: float) -> void:
-	# This function is called every frame while in the EMPTY state.
-	# You can add any code that should run continuously in the EMPTY state here.
+
+## This function is called when the EMPTY state is exited.
+var empty_exit: Callable = func() -> void:
+	# Do nothing
 	pass
-)
-var empty_exit: Callable = (func() -> void:
-	# This function is called when the EMPTY state is exited.
-	# You can add any cleanup code for the EMPTY state here.
-	pass
-)
-state_machine.add_state("EMPTY", empty_state)
+
 #endregion Empty State
 
 #region Planted State
+## State for when a seed has been planted but has not yet sprouted
 var planted_state: StateMachine.State = StateMachine.State.new()
-planted_state.set_enter(func() -> void:
-	# This function is called when the PLANTED state is entered.
-	# You can add any initialization code for the PLANTED state here.
+## This function is called when the PLANTED state is entered.
+var planted_enter: Callable = func() -> void:
+	
 	pass
-)
-planted_state.set_process(func(_delta: float) -> void:
-	# This function is called every frame while in the PLANTED state.
+
+## This function is called every frame while in the PLANTED state.
+var planted_process: Callable = func(_delta: float) -> void:
 	# You can add any code that should run continuously in the PLANTED state here.
 	pass
-)
-planted_state.set_exit(func() -> void:
-	# This function is called when the PLANTED state is exited.
+## This function is called when the PLANTED state is exited.
+var planted_exit: Callable = func() -> void:
 	# You can add any cleanup code for the PLANTED state here.
 	pass
-)
-state_machine.add_state("PLANTED", planted_state)
+
 #endregion Planted State
 
 #region Growing State
+## State for when the plant is growing but not yet fully grown
 var growing_state: StateMachine.State = StateMachine.State.new()
-growing_state.set_enter(func() -> void:
-	# This function is called when the GROWING state is entered.
+## This function is called when the GROWING state is entered.
+var growing_enter: Callable = func() -> void:
 	# You can add any initialization code for the GROWING state here.
 	pass
-)
-growing_state.set_process(func(_delta: float) -> void:
-	# This function is called every frame while in the GROWING state.
+
+## This function is called every frame while in the GROWING state.
+var growing_process: Callable = func(_delta: float) -> void:
 	# You can add any code that should run continuously in the GROWING state here.
 	pass
-)
-growing_state.set_exit(func() -> void:
-	# This function is called when the GROWING state is exited.
+
+## This function is called when the GROWING state is exited.
+var growing_exit: Callable = func() -> void:
 	# You can add any cleanup code for the GROWING state here.
 	pass
-)
-state_machine.add_state("GROWING", growing_state)
+
 #endregion Growing State
  
 #region Grown State
+## State for when the plant is fully grown and ready to harvest
 var grown_state: StateMachine.State = StateMachine.State.new()
-grown_state.set_enter(func() -> void:
-	# This function is called when the GROWN state is entered.
+## This function is called when the GROWN state is entered.
+var grown_enter: Callable = func() -> void:
 	# You can add any initialization code for the GROWN state here.
 	pass
-)
-grown_state.set_process(func(_delta: float) -> void:
-	# This function is called every frame while in the GROWN state.
+
+## This function is called every frame while in the GROWN state.
+var grown_process: Callable = func(_delta: float) -> void:
 	# You can add any code that should run continuously in the GROWN state here.
 	pass
-)
-grown_state.set_exit(func() -> void:
-	# This function is called when the GROWN state is exited.
+
+## This function is called when the GROWN state is exited.
+var grown_exit: Callable = func() -> void:
 	# You can add any cleanup code for the GROWN state here.
 	pass
-)
-state_machine.add_state("GROWN", grown_state)
+
 #endregion Grown State
 
 #endregion State Machine setup
@@ -132,6 +135,37 @@ func _enter_tree() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
+	# Create and set up the state machine with its states and callables
+	#region State Machine Build
+	#region Empty State Build
+	state_machine.add_state("EMPTY", empty_state)
+	empty_state.set_enter(empty_enter)
+	empty_state.set_process(empty_process)
+	empty_state.set_exit(empty_exit)
+	#endregion Empty State Build
+	#region Planted State Build
+	state_machine.add_state("PLANTED", planted_state)
+	planted_state.set_enter(planted_enter)
+	planted_state.set_process(planted_process)
+	planted_state.set_exit(planted_exit)
+	#endregion Planted State Build
+	#region Growing State Build
+	state_machine.add_state("GROWING", growing_state)
+	growing_state.set_enter(growing_enter)
+	growing_state.set_process(growing_process)
+	growing_state.set_exit(growing_exit)
+	#endregion Growing State Build
+	#region Grown State Build
+	state_machine.add_state("GROWN", grown_state)
+	grown_state.set_enter(grown_enter)
+	grown_state.set_process(grown_process)
+	grown_state.set_exit(grown_exit)
+	#endregion Grown State Build
+	state_machine.set_operator(self)
+	state_machine.set_state(empty_state)
+	#endregion State Machine Build
+
 	plant(PlantDetails.PlantType.NONE)  # Initialize the plot with no plant
 	is_watered = false
 	is_fertilized = false
@@ -176,50 +210,58 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	water_layer.visible = is_watered
-	fertilizer_layer.visible = is_fertilized
-	current_plant.visible = is_planted
-	if not is_planted:
-		return
-	if current_plant.plant_type == PlantDetails.PlantType.NONE:
-		return
-	if not is_grown:
-		growth_time += delta
-		match growth_time:
-			_ when growth_time < current_plant.plant_details.gestation_time:
-				if is_watered:
-					growth_time += delta
-				water_bar.visible = true
-				water_bar.value = min(
-					(growth_time / current_plant.plant_details.gestation_time) * 100.0, 100.0
-				)
+func _process(_delta: float) -> void:
 
-			_ when (
-				growth_time
-				< (
-					current_plant.plant_details.gestation_time
-					+ current_plant.plant_details.growth_time
-				)
-			):
-				if is_fertilized:
-					growth_time += delta
-				growth_bar.visible = true
-				growth_bar.value = (
-					(
-						(growth_time - current_plant.plant_details.gestation_time)
-						/ current_plant.plant_details.growth_time
-					)
-					* 100.0
-				)
-				current_plant._on_growing()
-			_:
-				water_bar.visible = false
-				growth_bar.visible = false
-				current_plant._on_grown()
-				is_grown = true
-				particle_emitter.emitting = true
-				emit_signal("plant_grown", self)
+	pass
+	# Deprecated: State machine processing is now handled within the state machine itself,
+	# so we no longer need to call it here.
+#region deprecated state machine processing
+	# water_layer.visible = is_watered
+	# fertilizer_layer.visible = is_fertilized
+	# current_plant.visible = is_planted
+	# if not is_planted:
+	# 	return
+	# if current_plant.plant_type == PlantDetails.PlantType.NONE:
+	# 	return
+	# if not is_grown:
+	# 	growth_time += delta
+	# 	match growth_time:
+	# 		_ when growth_time < current_plant.plant_details.gestation_time:
+	# 			if is_watered:
+	# 				growth_time += delta
+	# 			water_bar.visible = true
+	# 			water_bar.value = min(
+	# 				(growth_time / current_plant.plant_details.gestation_time) * 100.0, 100.0
+	# 			)
+
+	# 		_ when (
+	# 			growth_time
+	# 			< (
+	# 				current_plant.plant_details.gestation_time
+	# 				+ current_plant.plant_details.growth_time
+	# 			)
+	# 		):
+	# 			if is_fertilized:
+	# 				growth_time += delta
+	# 			growth_bar.visible = true
+	# 			growth_bar.value = (
+	# 				(
+	# 					(growth_time - current_plant.plant_details.gestation_time)
+	# 					/ current_plant.plant_details.growth_time
+	# 				)
+	# 				* 100.0
+	# 			)
+	# 			current_plant._on_growing()
+	# 		_:
+	# 			water_bar.visible = false
+	# 			growth_bar.visible = false
+	# 			current_plant._on_grown()
+	# 			is_grown = true
+	# 			particle_emitter.emitting = true
+	# 			emit_signal("plant_grown", self)
+	# #endregion deprecated state machine processing
+#endregion deprecated state machine processing
+
 
 
 func _get_details() -> PlantDetails:
@@ -244,7 +286,7 @@ func plant(_plant_type: PlantDetails.PlantType) -> void:
 	growth_time = 0.0
 	is_planted = true
 	is_grown = false
-	current_plant._on_planted()
+	current_plant.plant()
 	plant_planted.emit(_plant_type)
 
 
@@ -255,7 +297,7 @@ func harvest() -> void:
 	is_fertilized = false
 	is_grown = false
 	plant_harvested.emit(current_plant.plant_details)
-	current_plant._on_harvested()
+	current_plant.harvest()
 
 
 func fertilize() -> void:
