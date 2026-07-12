@@ -10,7 +10,7 @@ func _init(_object: Node, _args: Array[Action] = []) -> void:
 	super._init(_object)
 	# Initialize any additional properties or perform setup based on the provided arguments
 	if _args.size() > 0:
-		queue._items = _args.duplicate()
+		queue = Queue.new_with_items(_args)
 
 
 func execute(_delta: float) -> void:

@@ -1,6 +1,12 @@
 class_name LittleGreen
 extends Actor
 
+## This class represents the Little Green character in the game, responsible for
+## planting, watering, fertilizing, and harvesting crops in the garden. It manages
+## its own state and interacts with GardenPlot nodes to perform its tasks. The Little
+## Green character operates based on a queue of actions that dictate its behavior,
+## allowing it to efficiently manage multiple tasks in the garden.
+
 @warning_ignore_start("unused_signal")
 @warning_ignore_start("unused_private_class_variable")
 

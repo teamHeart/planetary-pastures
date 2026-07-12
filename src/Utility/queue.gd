@@ -6,10 +6,14 @@ extends Object
 
 var _items: Array = []
 
-
 func new():
 	_items = []
 
+static func new_with_items(items: Array) -> Queue:
+	var queue = Queue.new()
+	for item in items.duplicate():
+		queue.push(item)
+	return queue
 
 func clear():
 	_items.clear()
